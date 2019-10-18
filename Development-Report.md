@@ -76,6 +76,8 @@ Briefly describe each use case mentioning the following:
 ### User stories
 This section will contain the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
 
+[User stories in trello](https://trello.com/b/ROideknb)
+
 For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
 
 A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
