@@ -66,14 +66,71 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram%20v2.jpg) 
 
-Briefly describe each use case mentioning the following:
+* **Registar Palestras**
 
-* **Actor**. Name only the actor that will be initiating this use case, i.e. a person or other entity external to the software system being specified who interacts with the system and performs use cases to accomplish tasks. 
-* **Description**. Provide a brief description of the reason for and outcome of this use case, or a high-level description of the sequence of actions and the outcome of executing the use case. 
-* **Preconditions and Postconditions**. Include any activities that must take place, or any conditions that must be true, before the use case can be started (preconditions) and postconditions. Describe also the state of the system at the conclusion of the use case execution (postconditions). 
+* **Actor** : Organizador
 
-* **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system. 
-* **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
+* **Description** : O organizador é o único com permissões para gerir as palestras do evento.
+
+* **Preconditions and Postconditions**. O registo de palestras é feito quando tem de se adicionar, remover ou alterar alguma palestra do evento (preconditions). Esta ação implicará a alteração das palestras a que os participantes podem assistir (postconditions). 
+
+* **Normal Flow**. 
+
+* **Alternative Flows and Exceptions**.  
+
+
+* **Dar Feedback**
+
+* **Actor** : Participante
+
+* **Description** : O participante de qualquer palestra pode dar feedback sobre a mesma.
+
+* **Preconditions and Postconditions**. Para dar feedback sobre uma palestra, o participante tem de estar a assistir à mesma (preconditions). Quando dá o seu feedback, o mesmo ficará disponível para o orador da palestra em questão (postconditions). 
+
+* **Normal Flow**. 
+
+* **Alternative Flows and Exceptions**. 
+
+
+* **Colocar Dúvidas**
+
+* **Actor** : Participante
+
+* **Description** : O participante de qualquer palestra pode colocar dúvidas que tenha sobre a mesma.
+
+* **Preconditions and Postconditions**. Para colocar dúvidas sobre uma palestra, o participante tem de estar presente na mesma (preconditions). Quando submete uma dúvida, esta fica visível num fórum para o orador e para os restantes participantes (postconditions). 
+
+* **Normal Flow**. 
+
+* **Alternative Flows and Exceptions**. 
+
+
+* **Partilhar Material Utilizado**
+
+* **Actor** : Orador
+
+* **Description** : O orador pode partilhar o material que usou durante a sua palestra com os participantes da mesma.
+
+* **Preconditions and Postconditions**. O orador pode partilhar material com participantes presentes na sua palestra (preconditions); o mesmo ficará disponível durante e após o decorrer da mesma (postconditions).
+
+* **Normal Flow**. 
+
+* **Alternative Flows and Exceptions**. 
+
+
+**Gerir Dúvidas**
+
+* **Actor** : Orador
+
+* **Description** : O orador pode gerir as dúvidas colocadas pelos participantes na sua palestra.
+
+* **Preconditions and Postconditions**. O orador pode remover ou responder a qualquer dúvida colocada numa palestra sua (preconditions).  Qualquer uma destas ações se refletirá no fórum de dúvidas da palestra em questão.
+
+* **Normal Flow**. 
+
+* **Alternative Flows and Exceptions**. 
+
+ 
 
 ### User stories
 This section will contain the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
