@@ -66,7 +66,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram%20v2.jpg) 
 
-* **Registar Palestras**
+**Registar Palestras**
 
 * **Actor** : Organizador
 
@@ -79,7 +79,8 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * **Alternative Flows and Exceptions**.  
 
 
-* **Dar Feedback**
+
+**Dar Feedback**
 
 * **Actor** : Participante
 
@@ -92,7 +93,9 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * **Alternative Flows and Exceptions**. 
 
 
-* **Colocar Dúvidas**
+
+
+**Colocar Dúvidas**
 
 * **Actor** : Participante
 
@@ -105,7 +108,9 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * **Alternative Flows and Exceptions**. 
 
 
-* **Partilhar Material Utilizado**
+
+
+**Partilhar Material Utilizado**
 
 * **Actor** : Orador
 
@@ -116,6 +121,8 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * **Normal Flow**. 
 
 * **Alternative Flows and Exceptions**. 
+
+
 
 
 **Gerir Dúvidas**
