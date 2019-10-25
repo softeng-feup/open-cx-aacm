@@ -33,16 +33,11 @@ Thank you!
 ## Product Vision
  For the participants of the conference who want to take the best profit of the event the LiveFeedback app is a strong ally that provides the opportunity of interacting at any time of the talks by using a real time forum in which any attendee can give feedback, share and search the material used during each talk, ask questions, which you can do anonymously to make yourself comfortable for asking anything at all and also read other's questions.
  
- Unlike other common apps, our product gives you the chance to consult the answers to the questions that weren't asked during the time of the talk afterwards.
+ Unlike other common apps, our product helps not only the attendees but also the speakers because it gives you the chance to consult or answer the questions that weren't answered during the time of the talk afterwards.
 
 ---
 ## Elevator Pitch
-Draft a small text to help you quickly introduce and describe your product in a short time and a few words, a technique usually known as elevator pitch.
-
-Take a look at the following links to learn some techniques:
-* [Crafting an Elevator Pitch](https://www.mindtools.com/pages/article/elevator-pitch.htm)
-* [The Best Elevator Pitch Examples, Templates, and Tactics - A Guide to Writing an Unforgettable Elevator Speech, by strategypeak.com](https://strategypeak.com/elevator-pitch-examples/)
-* [Top 7 Killer Elevator Pitch Examples, by toggl.com](https://blog.toggl.com/elevator-pitch-examples/)
+ LiveFeedback solves the problem of having to wait until the end of the talks to ask your questions, risking forgetting them or even not asking them because it had to be in front of everybody, by using an online forum to help the attendees to ask their questions, that can be anonynous, share material and give feddback, all of this in real time during any talk. 
 
 ---
 ## Requirements
