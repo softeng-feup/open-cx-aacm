@@ -136,6 +136,8 @@ This section will contain the requirements of the product described as **user st
 
 [User stories in trello](https://trello.com/b/ROideknb)
 
+![alt_text](https://github.com/softeng-feup/open-cx-aacm/blob/master/User_stories.png)
+
 For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
 
 A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
