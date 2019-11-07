@@ -26,8 +26,11 @@ Please contact us!
 
 Thank you!
 
-*team members names*
-
+Ana Teresa Silva
+Andreia Gouveia
+Cláudia Martins
+Manuel Moreira
+Margarida Pinho
 ---
 
 ## Product Vision
@@ -52,11 +55,11 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 **Registar Palestras**
 
-* **Actor** : Organizador
+* **Actor** : Organizer
 
-* **Description** : O organizador é o único com permissões para gerir as palestras do evento.
+* **Description** : The organizer is the only one with permissions to manage the lectures of the event.
 
-* **Preconditions and Postconditions**. O registo de palestras é feito quando tem de se adicionar, remover ou alterar alguma palestra do evento (preconditions). Esta ação implicará a alteração das palestras a que os participantes podem assistir (postconditions). 
+* **Preconditions and Postconditions**. The registration of lectures is done when you need to add, remove or change any lecture of the event (preconditions); this action will entail changing the lectures that participants can attend (postconditions). 
 
 * **Normal Flow**. 
 
@@ -66,26 +69,26 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 **Dar Feedback**
 
-* **Actor** : Participante
+* **Actor** : Participant
 
-* **Description** : O participante de qualquer palestra pode dar feedback sobre a mesma.
+* **Description** : The participant of any lecture can give feedback on it.
 
-* **Preconditions and Postconditions**. Para dar feedback sobre uma palestra, o participante tem de estar a assistir à mesma (preconditions). Quando dá o seu feedback, o mesmo ficará disponível para o orador da palestra em questão (postconditions). 
+* **Preconditions and Postconditions**. To give feedback about a lecture, the participant must be attending the lecture (preconditions); when you give your feedback, it will be available to the speaker of the talk in question (postconditions).
 
 * **Normal Flow**. 
 
 * **Alternative Flows and Exceptions**. 
-
 
 
 
 **Colocar Dúvidas**
 
-* **Actor** : Participante
+* **Actor** : Participant
 
-* **Description** : O participante de qualquer palestra pode colocar dúvidas que tenha sobre a mesma.
+* **Description** : The participant of any lecture can ask questions about it on forum.
 
-* **Preconditions and Postconditions**. Para colocar dúvidas sobre uma palestra, o participante tem de estar presente na mesma (preconditions). Quando submete uma dúvida, esta fica visível num fórum para o orador e para os restantes participantes (postconditions). 
+* **Preconditions and Postconditions**. To ask questions about a lecture, the participant has to be present in it (preconditions); when you submit a question, it is visible in a forum for the speaker and other participants (postconditions).
+ 
 
 * **Normal Flow**. 
 
@@ -93,14 +96,13 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 
 
-
 **Partilhar Material Utilizado**
 
-* **Actor** : Orador
+* **Actor** : Speaker
 
-* **Description** : O orador pode partilhar o material que usou durante a sua palestra com os participantes da mesma.
+* **Description** : Speaker can share all the resources used during presentation with participants.
 
-* **Preconditions and Postconditions**. O orador pode partilhar material com participantes presentes na sua palestra (preconditions); o mesmo ficará disponível durante e após o decorrer da mesma (postconditions).
+* **Preconditions and Postconditions**. The speaker can share material with participants present in his lecture (preconditions); it will be available during and after it (postconditions).
 
 * **Normal Flow**. 
 
@@ -111,11 +113,12 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 **Gerir Dúvidas**
 
-* **Actor** : Orador
+* **Actor** : Speaker
 
-* **Description** : O orador pode gerir as dúvidas colocadas pelos participantes na sua palestra.
+* **Description** : The speaker can handle questions raised by participants during his lecture.
 
-* **Preconditions and Postconditions**. O orador pode remover ou responder a qualquer dúvida colocada numa palestra sua (preconditions).  Qualquer uma destas ações se refletirá no fórum de dúvidas da palestra em questão.
+* **Preconditions and Postconditions**. The speaker may remove or answer any questions posed in his lecture (preconditions); any of these actions will be reflected in the discussion forum for the talk in question.
+
 
 * **Normal Flow**. 
 
