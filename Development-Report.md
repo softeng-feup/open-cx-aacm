@@ -27,10 +27,16 @@ Please contact us!
 Thank you!
 
 Ana Teresa Silva
+
 Andreia Gouveia
+
 Cláudia Martins
+
 Manuel Moreira
+
 Margarida Pinho
+
+
 ---
 
 ## Product Vision
@@ -53,7 +59,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram%20v2.jpg) 
 
-**Registar Palestras**
+**Register Lectures**
 
 * **Actor** : Organizer
 
@@ -67,7 +73,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 
 
-**Dar Feedback**
+**Give Feedback**
 
 * **Actor** : Participant
 
@@ -81,7 +87,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 
 
-**Colocar Dúvidas**
+**Ask Questions**
 
 * **Actor** : Participant
 
@@ -96,7 +102,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 
 
-**Partilhar Material Utilizado**
+**Share Resources**
 
 * **Actor** : Speaker
 
@@ -110,8 +116,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 
 
-
-**Gerir Dúvidas**
+**Manage Questions**
 
 * **Actor** : Speaker
 
