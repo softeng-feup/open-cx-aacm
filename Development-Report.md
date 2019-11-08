@@ -107,16 +107,16 @@ Start by contextualizing your module, describing the main concepts, terms, roles
  
 
 * **Normal Flow**. 
- * Actor selects lecture.
- * Actor selects "add question" button. 
- * -Actor fills title of the question - E1 Actor doen't fill the question tittle -
- * -Actor writes the question details - A1 Actor doesn't write details about the question - 
- * -Actor submits question.
- * -Question is available for everyone to see.
- * -Returns to the lecture questions page.
+   * Actor selects lecture.
+   * Actor selects "add question" button. 
+   * -Actor fills title of the question - E1 Actor doen't fill the question tittle -
+   * -Actor writes the question details - A1 Actor doesn't write details about the question - 
+   * -Actor submits question.
+   * -Question is available for everyone to see.
+   * -Returns to the lecture questions page.
 
 * **Alternative Flows and Exceptions**. 
- * A1 - Actor doesn't write details about the question.
+   * A1 - Actor doesn't write details about the question.
 	* Actor tries to submit question.
 	* System notifies that a review wasn't written.
 	* System asks if user really wants to skip writing details about the question.
@@ -124,7 +124,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	* If selected no, cases continues at -Actor writes the question details.
 
 
- * E1 - Actor doesn't fill the question tittle.
+   * E1 - Actor doesn't fill the question tittle.
 	* Actor tries to submit question.
 	* Actor tries to ask a question with no title.
 	* System notifies that a title is necessary.
