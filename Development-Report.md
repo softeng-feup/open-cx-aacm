@@ -143,7 +143,7 @@ This section will contain the requirements of the product described as **user st
 
 *As a attendee, I want login so that I can use the app of the event.*
 
-![alt_text](https://github.com/softeng-feup/open-cx-aacm/blob/master/User Stories/US1.png)
+![alt_text](https://github.com/softeng-feup/open-cx-aacm/tree/master/User%20Stories/US1.png)
 
 Given that I want to use Live Feedback
 When the event is happening
