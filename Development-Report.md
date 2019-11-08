@@ -209,11 +209,11 @@ Use cross-links to the code repository and only embed real fragments of code whe
 To assure the quality of our application, we will run some tests.
 
 We are planning to test the following features:
-*Sign in
+*Sign in*
 	-Check the input data and its validity.
-*Add doubt
+*Add doubt*
 	-Check that the question is added to the forum and that it is displayed correctly.
-*Answer doubt
+*Answer doubt*
 	If speaker: 
 		-Check that, when answering a question, the reply is highlighted to distinguish it from the other users.
 	If speaker/user : 
