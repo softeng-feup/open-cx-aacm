@@ -57,7 +57,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### Use case diagram 
 
-![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram.jpg) 
+![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram.png) 
 
 
 
@@ -105,7 +105,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 
 
-**Consut Feedback**
+**Consult Feedback**
 
 * **Actor** : Speaker
 
