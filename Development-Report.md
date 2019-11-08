@@ -1,6 +1,6 @@
-# openCX-*your module name* Development Report
+# openCX-*Live Feedback* Development Report
 
-Welcome to the documentation pages of the LiveFeedback of **openCX**!
+Welcome to the documentation pages of the Live Feedback of **openCX**!
 
 You can find here detailed about the (sub)product, hereby mentioned as module, from a high-level vision to low-level implementation decisions, a kind of Software Development Report (see [template](https://github.com/softeng-feup/open-cx/blob/master/docs/templates/Development-Report.md)), organized by discipline (as of RUP): 
 
@@ -57,19 +57,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### Use case diagram 
 
-![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram%20v2.jpg) 
-
-**Register Lectures**
-
-* **Actor** : Organizer
-
-* **Description** : The organizer is the only one with permissions to manage the lectures of the event.
-
-* **Preconditions and Postconditions**. The registration of lectures is done when you need to add, remove or change any lecture of the event (preconditions); this action will entail changing the lectures that participants can attend (postconditions). 
-
-* **Normal Flow**. 
-
-* **Alternative Flows and Exceptions**.  
+![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram.jpg) 
 
 
 
@@ -102,6 +90,36 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 
 
+**Manage Questions**
+
+* **Actor** : Speaker
+
+* **Description** : The speaker can handle questions raised by participants during his lecture.
+
+* **Preconditions and Postconditions**. The speaker may remove or answer any questions posed in his lecture (preconditions); any of these actions will be reflected in the discussion forum for the talk in question.
+
+
+* **Normal Flow**. 
+
+* **Alternative Flows and Exceptions**. 
+
+
+
+**Consut Feedback**
+
+* **Actor** : Speaker
+
+* **Description** : The speaker can consult the feedback given by participants during his lecture.
+
+* **Preconditions and Postconditions**. The speaker can read the feedback left by the participants about all the parts of the lecture.
+
+
+* **Normal Flow**. 
+
+* **Alternative Flows and Exceptions**. 
+
+ 
+
 **Share Resources**
 
 * **Actor** : Speaker
@@ -116,27 +134,12 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 
 
-**Manage Questions**
-
-* **Actor** : Speaker
-
-* **Description** : The speaker can handle questions raised by participants during his lecture.
-
-* **Preconditions and Postconditions**. The speaker may remove or answer any questions posed in his lecture (preconditions); any of these actions will be reflected in the discussion forum for the talk in question.
-
-
-* **Normal Flow**. 
-
-* **Alternative Flows and Exceptions**. 
-
- 
-
 ### User stories
 This section will contain the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
 
 [User stories in trello](https://trello.com/b/ROideknb)
 
-![alt_text](https://github.com/softeng-feup/open-cx-aacm/blob/master/User_stories.png)
+![alt_text](https://github.com/softeng-feup/open-cx-aacm/blob/master/User%20Stories.png)
 
 For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
 
