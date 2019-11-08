@@ -109,11 +109,11 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * **Normal Flow**. 
    * Actor selects lecture.
    * Actor selects "add question" button. 
-   * -Actor fills title of the question - E1 Actor doen't fill the question tittle -
-   * -Actor writes the question details - A1 Actor doesn't write details about the question - 
-   * -Actor submits question.
-   * -Question is available for everyone to see.
-   * -Returns to the lecture questions page.
+   * Actor fills title of the question - E1 Actor doen't fill the question tittle -
+   * Actor writes the question details - A1 Actor doesn't write details about the question - 
+   * Actor submits question.
+   * Question is available for everyone to see.
+   * Returns to the lecture questions page.
 
 * **Alternative Flows and Exceptions**. 
    * A1 - Actor doesn't write details about the question.
