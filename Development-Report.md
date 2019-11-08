@@ -70,21 +70,6 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * **Preconditions and Postconditions**. To give feedback about a lecture, the participant must be attending the lecture (preconditions); when you give your feedback, it will be available to the speaker of the talk in question (postconditions).
 
 * **Normal Flow**. 
-
-* **Alternative Flows and Exceptions**. 
-
-
-
-**Ask Questions**
-
-* **Actor** : Participant
-
-* **Description** : The participant of any lecture can ask questions about it on forum.
-
-* **Preconditions and Postconditions**. To ask questions about a lecture, the participant has to be present in it (preconditions); when you submit a question, it is visible in a forum for the speaker and other participants (postconditions).
- 
-
-* **Normal Flow**. 
   * Actor selects lecture that wants to give feedback on.
   * Actor selects the give feedback option. -E1 Actor is not present in lecture-
   * Actor selects how many stars to give to the lecture -E2 Actor doen't leave a rating.-
@@ -108,6 +93,22 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	  * Actor tries to give feedback and system doesn't allow. 
 	  * System notifies that being present is necessary.
 	  * Use cases continues at Returns to the lecture main page.
+
+
+
+
+**Ask Questions**
+
+* **Actor** : Participant
+
+* **Description** : The participant of any lecture can ask questions about it on forum.
+
+* **Preconditions and Postconditions**. To ask questions about a lecture, the participant has to be present in it (preconditions); when you submit a question, it is visible in a forum for the speaker and other participants (postconditions).
+ 
+
+* **Normal Flow**. 
+
+* **Alternative Flows and Exceptions**. 
 
 
 
