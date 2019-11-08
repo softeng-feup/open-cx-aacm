@@ -57,7 +57,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### Use case diagram 
 
-![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram%20v2.jpg) 
+![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram.jpg) 
 
 
 
@@ -124,7 +124,7 @@ This section will contain the requirements of the product described as **user st
 
 [User stories in trello](https://trello.com/b/ROideknb)
 
-![alt_text](https://github.com/softeng-feup/open-cx-aacm/blob/master/User Stories.png)
+![alt_text](https://github.com/softeng-feup/open-cx-aacm/blob/master/User%20Stories.png)
 
 For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
 
