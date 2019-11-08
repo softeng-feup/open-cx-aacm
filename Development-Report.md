@@ -90,20 +90,6 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 
 
-**Share Resources**
-
-* **Actor** : Speaker
-
-* **Description** : Speaker can share all the resources used during presentation with participants.
-
-* **Preconditions and Postconditions**. The speaker can share material with participants present in his lecture (preconditions); it will be available during and after it (postconditions).
-
-* **Normal Flow**. 
-
-* **Alternative Flows and Exceptions**. 
-
-
-
 **Manage Questions**
 
 * **Actor** : Speaker
@@ -117,7 +103,36 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 * **Alternative Flows and Exceptions**. 
 
+
+
+**Consut Feedback**
+
+* **Actor** : Speaker
+
+* **Description** : The speaker can consult the feedback given by participants during his lecture.
+
+* **Preconditions and Postconditions**. The speaker can read the feedback left by the participants about all the parts of the lecture.
+
+
+* **Normal Flow**. 
+
+* **Alternative Flows and Exceptions**. 
+
  
+
+**Share Resources**
+
+* **Actor** : Speaker
+
+* **Description** : Speaker can share all the resources used during presentation with participants.
+
+* **Preconditions and Postconditions**. The speaker can share material with participants present in his lecture (preconditions); it will be available during and after it (postconditions).
+
+* **Normal Flow**. 
+
+* **Alternative Flows and Exceptions**. 
+
+
 
 ### User stories
 This section will contain the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
