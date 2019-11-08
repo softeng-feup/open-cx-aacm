@@ -85,8 +85,29 @@ Start by contextualizing your module, describing the main concepts, terms, roles
  
 
 * **Normal Flow**. 
+  * Actor selects lecture that wants to give feedback on.
+  * Actor selects the give feedback option. [E1 Actor is not present in lecture]
+  *	-Actor selects how many stars to give to the lecture[E2 Actor doen't leave a rating.].
+  *	-Actor writes a review[A1 Actor doen't leave a review.].
+  *	-Actor submits feedback.
+  *	-Feedback is available for everyone to see.
+  *	-Returns to the lecture main page
 
 * **Alternative Flows and Exceptions**. 
+  A1 - Actor doen't leave a review.
+	  * System notifies that a review wasn't written.
+	  * System asks if user really wants to not write a review.
+
+	 E1 - Actor doen't leave a rating.
+	  * Actor tries to submit and system doesn't allow. 
+	  * System notifies that the rating is mandatory.
+	  * If user chooses not to write a review, the use cases continues at Actor submits feedback.
+	  * Else the use cases continues at Actor writes a review.
+
+	 E2 - Actor is not present in lecture.
+	  * Actor tries to give feedback and system doesn't allow. 
+	  * System notifies that being present is necessary.
+	  * Use cases continues at Returns to the lecture main page.
 
 
 
