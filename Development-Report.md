@@ -98,13 +98,13 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	  * System notifies that a review wasn't written.
 	  * System asks if user really wants to not write a review.
 
- * E1 - Actor doen't leave a rating.
+  * E1 - Actor doen't leave a rating.
 	  * Actor tries to submit and system doesn't allow. 
 	  * System notifies that the rating is mandatory.
 	  * If user chooses not to write a review, the use cases continues at Actor submits feedback.
 	  * Else the use cases continues at Actor writes a review.
 
- * E2 - Actor is not present in lecture.
+  * E2 - Actor is not present in lecture.
 	  * Actor tries to give feedback and system doesn't allow. 
 	  * System notifies that being present is necessary.
 	  * Use cases continues at Returns to the lecture main page.
@@ -219,15 +219,15 @@ Use cross-links to the code repository and only embed real fragments of code whe
 To assure the quality of our application, we will run some tests.
 
 We are planning to test the following features:
-* Sign in
-        -Check the input data and its validity.
-* Add doubt
-        -Check that the question is added to the forum and that it is displayed correctly.
-* Answer doubt
-        If speaker: 
-                -Check that, when answering a question, the reply is highlighted to distinguish it from the other users.
-        If speaker/user : 
-                -Check that the reply is added and displayed correctly.
+ * Sign in
+        * Check the input data and its validity.
+ * Add doubt
+        * Check that the question is added to the forum and that it is displayed correctly.
+ * Answer doubt
+       * If speaker: 
+                * Check that, when answering a question, the reply is highlighted to distinguish it from the other users.
+       * If speaker/user : 
+                * Check that the reply is added and displayed correctly.
   
 There are several ways of documenting testing activities, and quality assurance in general, being the most common: a strategy, a plan, test case specifications, and test checklists.
 
