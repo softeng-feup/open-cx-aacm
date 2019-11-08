@@ -72,18 +72,18 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * **Normal Flow**. 
   * Actor selects lecture that wants to give feedback on.
   * Actor selects the give feedback option. -E1 Actor is not present in lecture-
-  * Actor selects how many stars to give to the lecture -E2 Actor doen't leave a rating.-
+  * Actor selects how many stars to give to the lecture -E2 Actor doesn't leave a rating.-
   * Actor writes a review -A1 Actor doen't leave a review-
   * Actor submits feedback.
   * Feedback is available for everyone to see.
   * Returns to the lecture main page
 
 * **Alternative Flows and Exceptions**. 
-  * A1 - Actor doen't leave a review.
+  * A1 - Actor doesn't leave a review.
 	  * System notifies that a review wasn't written.
 	  * System asks if user really wants to not write a review.
 
-  * E1 - Actor doen't leave a rating.
+  * E1 - Actor doesn't leave a rating.
 	  * Actor tries to submit and system doesn't allow. 
 	  * System notifies that the rating is mandatory.
 	  * If user chooses not to write a review, the use cases continues at Actor submits feedback.
@@ -107,9 +107,28 @@ Start by contextualizing your module, describing the main concepts, terms, roles
  
 
 * **Normal Flow**. 
+ * Actor selects lecture.
+ * Actor selects "add question" button. 
+ * -Actor fills title of the question - E1 Actor doen't fill the question tittle -
+ * -Actor writes the question details - A1 Actor doesn't write details about the question - 
+ * -Actor submits question.
+ * -Question is available for everyone to see.
+ * -Returns to the lecture questions page.
 
 * **Alternative Flows and Exceptions**. 
+ * A1 - Actor doesn't write details about the question.
+	* Actor tries to submit question.
+	* System notifies that a review wasn't written.
+	* System asks if user really wants to skip writing details about the question.
+	* If selected yes, cases continues at Returns to the lecture questions page.
+	* If selected no, cases continues at -Actor writes the question details.
 
+
+ * E1 - Actor doesn't fill the question tittle.
+	* Actor tries to submit question.
+	* Actor tries to ask a question with no title.
+	* System notifies that a title is necessary.
+	* Use cases continues at Returns to the lecture questions page.
 
 
 **Manage Questions**
@@ -227,7 +246,7 @@ We are planning to test the following features:
  * Answer doubt
        * If speaker: 
                 * Check that, when answering a question, the reply is highlighted to distinguish it from the other users.
-       * If speaker/user : 
+       * If speaker/user: 
                 * Check that the reply is added and displayed correctly.
   
 There are several ways of documenting testing activities, and quality assurance in general, being the most common: a strategy, a plan, test case specifications, and test checklists.
