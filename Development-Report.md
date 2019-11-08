@@ -206,6 +206,19 @@ Use cross-links to the code repository and only embed real fragments of code whe
 ---
 ## Test
 
+To assure the quality of our application, we will run some tests.
+
+We are planning to test the following features:
+*Sign in
+	-Check the input data and its validity.
+*Add doubt
+	-Check that the question is added to the forum and that it is displayed correctly.
+*Answer doubt
+	If speaker: 
+		-Check that, when answering a question, the reply is highlighted to distinguish it from the other users.
+	If speaker/user : 
+		-Check that the reply is added and displayed correctly.
+  
 There are several ways of documenting testing activities, and quality assurance in general, being the most common: a strategy, a plan, test case specifications, and test checklists.
 
 In this section it is only expected to include the following:
