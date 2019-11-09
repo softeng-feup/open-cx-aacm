@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'objects.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -13,12 +14,22 @@ class HomePage extends StatefulWidget {
 
 class MyHomePage extends State<HomePage> {
   int _counter = 0;
-  List<String> listLectures=[];
-  void _incrementCounter() {
+  List<ForumInfo> listLectures=[];
+
+  void getForumInfo(ForumInfo newForum) async{
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => InfoScreen(newForum)),
+    );
+  }
+
+  void _incrementCounter(){
     setState(() {
-      if(_counter <12)
+      if(_counter <12){
         _counter ++;
-      listLectures.add('Palestra ${_counter}');
+      ForumInfo newLecture = new ForumInfo();
+      getForumInfo(newLecture);
+      listLectures.add(newLecture);}
     });}
 
   @override
@@ -38,15 +49,15 @@ class MyHomePage extends State<HomePage> {
 
             for ( var i = 0; i < _counter; i++)
               new FlatButton.icon(
-                  padding: const EdgeInsets.all(10),
                   color: Colors.lightBlue,
                   textColor: Colors.white,
                   icon: Icon(Icons.favorite_border), //`Icon` to display
-                  label: Text(listLectures[i]), //`Text` to display
+                  label: Text(listLectures[i].getName()), //`Text` to display
+                  padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Forum(listLectures[i])),
+                      MaterialPageRoute(builder: (context) => Forum(listLectures[i].getName())),
                     );
                   }
               )
@@ -56,8 +67,7 @@ class MyHomePage extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        onPressed:_incrementCounter,
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
@@ -88,4 +98,79 @@ class Forum extends StatelessWidget {
       ),
     );
   }
+}
+
+class InfoScreen extends StatelessWidget {
+  static final formKey = GlobalKey<FormState>();
+  ForumInfo newForm;
+  InfoScreen (this.newForm);
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Adicionar nova palestra'),
+        ),
+        body: Card(
+          child: new SingleChildScrollView(
+          child:Padding(padding: EdgeInsets.all(8.0),
+            child: Form(
+              key: formKey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  TextFormField(
+                    decoration: InputDecoration(
+                        labelText: 'Nome da palestra: '
+                    ),
+                    onSaved: (String val) =>  newForm.setName(val),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        labelText: 'Descrição:'
+                    ),
+                    onSaved: (String val) => newForm.setText(val),
+                  ),
+                  TextFormField(
+                    keyboardType: TextInputType.numberWithOptions(),
+                    decoration: InputDecoration(
+                        labelText: 'Hora:'
+                    ),
+                    onSaved: (String val) => newForm.setHour(int.parse(val)),
+                  ),
+                  TextFormField(
+                    keyboardType: TextInputType.numberWithOptions(),
+                    decoration: InputDecoration(
+                        labelText: 'Minuto:'
+                    ),
+                    onSaved: (String val) => newForm.setMinutes(int.parse(val)),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        labelText: 'Sala:'
+                    ),
+                    onSaved: (String val) => newForm.setRoom(val),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: RaisedButton(
+                          onPressed:(){ _submit();
+                          Navigator.pop(context);},
+                          child: Text('Submit'),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          )),
+        ));
+}
+  void _submit(){
+      formKey.currentState.save();
+    }
+
 }
