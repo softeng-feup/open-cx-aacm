@@ -83,7 +83,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	  * System asks if user really wants to not write a review.
 
   * E1 - Actor doesn't leave a rating.
-	  * Actor tries to submit and system doesn't allow. 
+  	  * Actor tries to submit and system doesn't allow. 
 	  * System notifies that the rating is mandatory.
 	  * If user chooses not to write a review, the use cases continues at Actor submits feedback.
 	  * Else the use cases continues at Actor writes a review.
@@ -145,12 +145,13 @@ Start by contextualizing your module, describing the main concepts, terms, roles
   * Returns to the lecture questions page.
 
 * **Alternative Flows and Exceptions**. 
-* E1 - Actor doesn't respond question.
-	 * Actor tries to submit question.
-	 * System notifies that an answer is necessary.
-	 * System asks if user really wants leave without responding to the question.
-	 * If selected yes, cases continues at Returns to the lecture questions page.
-	 * If selected no, cases continues at Actor selects a question. 
+
+   * E1 - Actor doesn't respond question.
+   	  * Actor tries to submit question.
+	  * System notifies that an answer is necessary.
+	  * System asks if user really wants leave without responding to the question.
+	  * If selected yes, cases continues at Returns to the lecture questions page.
+	  * If selected no, cases continues at Actor selects a question. 
 	 
 	 
 	 
@@ -170,10 +171,11 @@ Start by contextualizing your module, describing the main concepts, terms, roles
   * Returns to the lecture questions page.
 
 * **Alternative Flows and Exceptions**. 
-* A1 - Actor doesn't delete question.
-	 * System asks if user really wants leave without removing the question.
-	 * If selected yes, cases continues at Returns to the lecture questions page.
-	 * If selected no, cases continues at Actor selects a question. 
+
+   * A1 - Actor doesn't delete question.
+   	  * System asks if user really wants leave without removing the question.
+	  * If selected yes, cases continues at Returns to the lecture questions page.
+	  * If selected no, cases continues at Actor selects a question. 
 	 
 	 
 	 
@@ -212,26 +214,27 @@ Start by contextualizing your module, describing the main concepts, terms, roles
    * Returns to the lectures main page.
 
 * **Alternative Flows and Exceptions**. 
+
    * A1 - Actor doesn't write a summary of the new material.
-	 * Actor tries to submit new resource.
-	 * System notifies that the summary wasn't written.
-	 * System asks if user really wants to submit resource without a summary.
-	 * If selected yes, cases continues at Returns to the lectures main page.
-	 * If selected no, cases continues at Actor writes a summary of the new resource.
+   	  * Actor tries to submit new resource.
+	  * System notifies that the summary wasn't written.
+	  * System asks if user really wants to submit resource without a summary.
+	  * If selected yes, cases continues at Returns to the lectures main page.
+	  * If selected no, cases continues at Actor writes a summary of the new resource.
 
    * E1 - Actor doesn't fill the resource tittle.
-	 * Actor tries to submit a new resource without a title.
-	 * System notifies that a title is necessary.
-	 * System asks if user still wants to Share Resources.
-	 * If selected yes, cases continues at Actor fills tittle of the new resource.
-	 * If selected no, cases continues at Returns to the lectures main page.
+	  * Actor tries to submit a new resource without a title.
+	  * System notifies that a title is necessary.
+	  * System asks if user still wants to Share Resources.
+	  * If selected yes, cases continues at Actor fills tittle of the new resource.
+	  * If selected no, cases continues at Returns to the lectures main page.
    
    * E2 - Actor doesn't upload any file.
-	 * Actor tries to submit a new resource without a file.
-	 * System notifies that a file is necessary.
-	 * System asks if user still wants to Share Resources.
-	 * If selected yes, cases continues at Actor selects a file.
-	 * If selected no, cases continues at Returns to the lectures main page.
+	  * Actor tries to submit a new resource without a file.
+	  * System notifies that a file is necessary.
+	  * System asks if user still wants to Share Resources.
+	  * If selected yes, cases continues at Actor selects a file.
+	  * If selected no, cases continues at Returns to the lectures main page.
 
 
 
