@@ -260,13 +260,14 @@ To better understand the context of the software system, it is very useful to ha
 ---
 
 ## Architecture and Design
-The architecture of a software system encompasses the set of key decisions about its overall organization. 
 
-A well written architecture document is brief but reduces the amount of time it takes new programmers to a project to understand the code to feel able to make modifications and enhancements.
+The Feedback app starts with a main page that redirect automatically the user to the login page. 
+After the login, the homepage of the user allows to access the foruns of lectures that user attends. 
+Each forum is associated to a lecture and can redirect user to three topics: resources, forum of answers and questions and feedback page.
+Resources page allows every user (speaker and participant) to consult available resources and the speaker to share more resources.
+In Q&A page, users can create a new topic and ask questions; the speaker, can create or delete a topic and answer questions.
+Feedback page allows participants to add a new topic and every user to consult an existing one. 
 
-To document the architecture requires describing the decomposition of the system in their parts (high-level components) and the key behaviors and collaborations between them. 
-
-In this section you should start by briefly describing the overall components of the project and their interrelations. You should also describe how you solved typical problems you may have encountered, pointing to well-known architectural and design patterns, if applicable.
 
 ### Logical architecture
 The purpose of this subsection is to document the high-level logical structure of the code, using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
