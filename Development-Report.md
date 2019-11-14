@@ -243,15 +243,6 @@ This section will contain the requirements of the product described as **user st
 
 [User stories in trello](https://trello.com/b/ROideknb)
 
-*As a attendee, I want login so that I can use the app of the event.*
-
-![alt_text](https://github.com/softeng-feup/open-cx-aacm/blob/master/User%20Stories/US1.png)
-
-Given that I want to use Live Feedback
-When the event is happening
-Then I need to be able to login in the app
-
-Value and effort - missing
 
 ### Domain model
 
