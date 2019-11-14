@@ -248,6 +248,8 @@ This section will contain the requirements of the product described as **user st
 
 To better understand the context of the software system, it is very useful to have a simple UML class diagram with all the key concepts (names, attributes) and relationships involved of the problem domain addressed by your module.
 
+![Live Feedback](https://github.com/softeng-feup/open-cx-aacm/blob/master/LiveFeedback%20UML.png)
+
 ---
 
 ## Architecture and Design
