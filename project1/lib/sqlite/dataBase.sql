@@ -1,27 +1,61 @@
 PRAGMA foreign_keys = ON;
-	-- Palestra Table
-	DROP TABLE IF EXISTS Palestra;
 
-	CREATE TABLE Palestra (
-		id			INTEGER	 PRIMARY KEY,
-		dateP	    DATE NOT NULL,
-		hourP		INTEGER NOT NULL,
-		minuteP     INTEGER NOT NULL,
-		name		TEXT NOT NULL,
-		lecturer    TEXT NOT NULL
+DROP TABLE IF EXISTS orador;
+DROP TABLE IF EXISTS participante; 
+DROP TABLE IF EXISTS palestra ;
+DROP TABLE IF EXISTS perguntas;
+DROP TABLE IF EXISTS respostas;
+DROP TABLE IF EXISTS material;
 
-	);
+-- Create the table in the specified schema
+CREATE TABLE orador
+(
+    id SERIAL PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL UNIQUE,
+    photo TEXT,
+    "description" TEXT
+);
 
-	--  User Table
-    	DROP TABLE IF EXISTS Person;
+CREATE TABLE participante
+(
+    id SERIAL PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL UNIQUE
+);
 
-    	CREATE TABLE Person (
-    		id			INTEGER	 PRIMARY KEY,
-    		birthDate	DATE NOT NULL,
-    		contact		INTEGER	 NOT NULL UNIQUE
-    					CHECK((contact >= 910000000 AND contact <= 939999999) OR (contact >= 960000000 AND contact <= 969999999)),
-    		name		TEXT NOT NULL,
-    		email		TEXT NOT NULL UNIQUE,
-    		password    INTEGER NOT NULL
+CREATE TABLE palestra
+(
+    id SERIAL PRIMARY KEY,
+    "date" datetime DEFAULT CURRENT_TIMESTAMP,
+    about TEXT,
+    FOREIGN KEY (orador_id) REFERENCES orador (orador_id)
+);
 
-    	);
+CREATE TABLE perguntas
+(
+    id SERIAL PRIMARY KEY,
+    "date" datetime DEFAULT CURRENT_TIMESTAMP,
+    content TEXT,
+    FOREIGN KEY (participante_id) REFERENCES participante (participante_id),
+    FOREIGN KEY (palestra_id) REFERENCES palestra (palestra_id)
+);
+
+CREATE TABLE respostas
+(
+    id SERIAL PRIMARY KEY,
+    "date" datetime DEFAULT CURRENT_TIMESTAMP,
+    content TEXT,
+    FOREIGN KEY (perguntas_id) REFERENCES perguntas (perguntas_id),
+    FOREIGN KEY (orador_id) REFERENCES orador (orador_id)
+);
+
+CREATE TABLE material
+(
+    id SERIAL PRIMARY KEY,
+    "date" datetime DEFAULT CURRENT_TIMESTAMP,
+    content TEXT,
+    FOREIGN KEY (palestra_id) REFERENCES palestra (palestra_id)
+);
