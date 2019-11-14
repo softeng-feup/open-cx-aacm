@@ -12,7 +12,7 @@ class ForumInfo {
 
 ForumInfo(){
   this.name= "temp";
-  this.text = "loool";
+  this.text = "informacao sobre a palestra, superrrr importante";
   this.hour = 1;
   this.minutes = 2;
   this.room =" default";

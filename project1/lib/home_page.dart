@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'objects.dart';
+import 'forum.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -48,20 +49,21 @@ class MyHomePage extends State<HomePage> {
           [
 
             for ( var i = 0; i < _counter; i++)
-              new FlatButton.icon(
-                  color: Colors.lightBlue,
-                  textColor: Colors.white,
-                  icon: Icon(Icons.favorite_border), //`Icon` to display
-                  label: Text(listLectures[i].getName()), //`Text` to display
-                  padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Forum(listLectures[i].getName())),
-                    );
+              new SizedBox(
+                  width: 300,
+                  child: FlatButton.icon(
+                    color: Colors.lightBlue,
+                    textColor: Colors.white,
+                    icon: Icon(Icons.favorite_border), //`Icon` to display
+                    label: Text(listLectures[i].getName()), //`Text` to display
+                    padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Forum(listLectures[i].getName())),
+                      );
                   }
-              )
-
+              ))
           ],
 
         ),
@@ -74,33 +76,8 @@ class MyHomePage extends State<HomePage> {
   }
 }
 
-class Forum extends StatelessWidget {
-  String j;
-  Forum(String i)
-  {
-    j=i;
-  }
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Forum ${j}"),
-      ),
-      body: Center(
-        child: RaisedButton(
-          color: Colors.lightBlue,
-          onPressed: () {
-            // Navigate back to first route when tapped.
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
 
-class InfoScreen extends StatelessWidget {
+class InfoScreen extends StatelessWidget { //adicionar palestra
   static final formKey = GlobalKey<FormState>();
   ForumInfo newForm;
   InfoScreen (this.newForm);
