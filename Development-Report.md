@@ -55,6 +55,7 @@ In this section, you should describe all kinds of requirements for your module: 
 
 Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
 
+
 ### Use case diagram 
 
 ![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram.png) 
@@ -239,7 +240,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 
 ### User stories
-This section will contain the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
+This section contains the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
 
 [User stories in trello](https://trello.com/b/ROideknb)
 
