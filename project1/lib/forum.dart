@@ -1,103 +1,142 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-class Forum extends StatelessWidget {
-  String j;
+import 'feedback.dart';
 
-  Forum(String i) {
-    j = i;
-  }
+class Forum extends StatelessWidget {
+  static BuildContext context;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context1) {
+    Forum.context = context1;
     return Scaffold(
-
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text("Forum ${j}"),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children:  <Widget>[
-          SizedBox(height: 20),
-         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            photo,
-            RaisedButton(
-              color: Colors.lightBlue,
-              onPressed: () {
-                // Navigate back to first route when tapped.
-                Navigator.pop(context);
-                },
-              child: Text('Very Serious man profile'),
-        )
-          ]
+        backgroundColor: Color(0xFFFAFAFA),
+        appBar: AppBar(
+          title: Text("Live Feedback"),
+          backgroundColor: Color(0xFF3EA6F2),
         ),
-          Row(
+        body: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              blankSpace
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              description
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
+              Row(mainAxisSize: MainAxisSize.max, children: [
+                talkTitle,
+                SizedBox(width: 15),
+                Column(
+                  children: <Widget>[photo, speakerInfo],
+                )
+              ]),
+              talkResources,
+              askQuestion,
+              talkFeedback,
+              talkForum,
               SizedBox(
-                width: 205,
-                child : RaisedButton(
-                  color: Colors.lightBlue,
-                  onPressed: () {
-                  // Navigate back to first route when tapped.
-                  Navigator.pop(context);
-                    },
-                  child: Text('Material'))),
-              SizedBox(
-                width: 205,
-                child:RaisedButton(
-                  color: Colors.lightBlue,
-                  onPressed: () {
-                // Navigate back to first route when tapped.
-                    Navigator.pop(context);
-                    },
-                  child: Text('Forum'))
-              )
+                height: 10,
+              ),
             ],
           )
-      ],
-      ),
-    );
+        ]));
   }
-  final blankSpace =Container(
-    // padding:new EdgeInsets.all(40.0) ,
-      width: 400,
-      height: 150.0,
-      decoration: new BoxDecoration(color:  Colors.white)
+
+  final talkTitle = SizedBox(
+    child: Text('Palestra 1',
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 46,
+            color: Color(0xFF3EA6F2))),
   );
 
-  final description = Container(
-   // padding:new EdgeInsets.all(40.0) ,
-      width: 411,
-      height: 245.0,
-      decoration: new BoxDecoration(color:  Colors.grey),
-      child: Text('Some beautiful description about the talk')
+  final speakerInfo = RaisedButton(
+    color: Color(0xFFFAFAFA),
+    onPressed: () {
+      // Navigate back to first route when tapped.
+      BuildContext context2 = context;
+      Navigator.pop(context2);
+    },
+    child: Text('Speaker \n Name',
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+            color: Color(0xFF5A6779))),
   );
 
   final photo = Hero(
-    tag: 'hero',
-    child: CircleAvatar(
-      radius: 70.0,
-      backgroundColor: Colors.lightBlue,
+      tag: 'hero',
       child: CircleAvatar(
-        radius: 60.0,
-      backgroundImage:
-      NetworkImage('https://corporatefinanceinstitute.com/assets/professional-1200x747.jpg'),
-      backgroundColor: Colors.transparent,
-      ),
-    ),
-  );
+        radius: 40.0,
+        backgroundColor: Colors.black54,
+        child: CircleAvatar(
+          radius: 37.0,
+          backgroundImage: AssetImage("assets/images/speaker.jpg"),
+        ),
+      ));
+
+  final talkResources = SizedBox(
+      width: 350,
+      height: 60,
+      child: RaisedButton(
+          color: Colors.white,
+          onPressed: () {
+            // Navigate back to first route when tapped.
+            Navigator.pop(context);
+          },
+          child: SizedBox(
+              width: 350,
+              child: Text('Consult resources',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Color(0xFF5A6779))))));
+
+  final askQuestion = SizedBox(
+      width: 350,
+      height: 60,
+      child: RaisedButton(
+          color: Colors.white,
+          onPressed: () {
+            // Navigate back to first route when tapped.
+            Navigator.pop(context);
+          },
+          child: SizedBox(
+              width: 350,
+              child: Text('Ask a question',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Color(0xFF5A6779))))));
+
+  final talkFeedback = SizedBox(
+      width: 350,
+      height: 60,
+      child: RaisedButton(
+          color: Colors.white,
+          onPressed: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SecondRoute())
+            );
+          },
+          child: SizedBox(
+              width: 350,
+              child: Text('Feedback',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Color(0xFF5A6779))))));
+
+  final talkForum = SizedBox(
+      width: 350,
+      height: 60,
+      child: RaisedButton(
+          color: Colors.white,
+          onPressed: () {
+            // Navigate back to first route when tapped.
+            Navigator.pop(context);
+          },
+          child: SizedBox(
+              width: 350,
+              child: Text('Forum',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Color(0xFF5A6779))))));
 }

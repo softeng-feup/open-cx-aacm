@@ -60,7 +60,7 @@ class MyHomePage extends State<HomePage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Forum(listLectures[i].getName())),
+                        MaterialPageRoute(builder: (context) => Forum()),
                       );
                   }
               ))
