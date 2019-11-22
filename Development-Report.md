@@ -341,6 +341,8 @@ Software project management is an art and science of planning and leading softwa
 
 * [Trello.com](https://trello.com/b/ROideknb/livefeedback-user-stories
 
-*22nd November's Delivery:*
+*Iteraction 3:*
+
+
 Browse the repository at this delivery: https://github.com/softeng-feup/open-cx-aacm/tree/86c5146642f411d5be2bb8f1ab5d2be2d5562886
 
