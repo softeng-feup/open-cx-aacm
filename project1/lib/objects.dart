@@ -30,3 +30,27 @@ ForumInfo(){
   void setRoom( String room) {this.room= room;}
 
 }
+
+class Question
+{
+
+  String title;
+  String description;
+  String person;
+
+  Question(this.title , this.description , this.person);
+
+  void setName( String title)
+  {
+    this.title =  title;
+  }
+
+  void setDescription( String description){
+    this.description = description;
+  }
+
+  void setPerson (String person)
+  {
+    this.person=person;
+  }
+}

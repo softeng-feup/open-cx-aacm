@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'feedback.dart';
+import 'profile.dart';
+import 'questions.dart';
 
 class Forum extends StatelessWidget {
   static BuildContext context;
@@ -52,11 +54,21 @@ class Forum extends StatelessWidget {
       BuildContext context2 = context;
       Navigator.pop(context2);
     },
-    child: Text('Speaker \n Name',
+    child: SizedBox(
+      child: RaisedButton(
+          color: Colors.white,
+          onPressed: () {
+            // Navigate back to first route when tapped.
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
+          },
+        child: Text('Speaker \n Name',
         style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 14,
-            color: Color(0xFF5A6779))),
+            color: Color(0xFF5A6779))
+        )
+      )
+    ),
   );
 
   final photo = Hero(
@@ -94,7 +106,7 @@ class Forum extends StatelessWidget {
           color: Colors.white,
           onPressed: () {
             // Navigate back to first route when tapped.
-            Navigator.pop(context);
+            Navigator.push(context , MaterialPageRoute(builder: (context) => QuestionForum()));
           },
           child: SizedBox(
               width: 350,
