@@ -26,7 +26,6 @@ class Forum extends StatelessWidget {
                 )
               ]),
               talkResources,
-              askQuestion,
               talkFeedback,
               talkForum,
               SizedBox(

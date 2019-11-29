@@ -61,11 +61,14 @@ class MyHomePage extends State<HomePage> {
                       borderRadius: BorderRadius.circular(30),
                             ),
                     onPressed: () {
+                        Navigator.push(context,  MaterialPageRoute(builder: (context) => Forum()));
                     },
                       padding: EdgeInsets.all(12),
                       color: Colors.white,
                       child: Text(listLectures[i].getName(),
-                          style: TextStyle( fontSize:20,foreground: Paint()
+                          style: TextStyle(
+                              fontSize:20 ,
+                              foreground: Paint()
                         ..shader = ui.Gradient.linear(
                           const Offset(0, 20),
                           const Offset(150, 20),
@@ -73,10 +76,15 @@ class MyHomePage extends State<HomePage> {
                             Colors.lightBlue,
                             Colors.blueGrey,
                           ],
-                        ))),
+                        )
+                          )
+                      ),
       ),
     )
-      )],)),
+      )
+          ],
+        )
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed:_incrementCounter,
         child: Icon(Icons.add),
