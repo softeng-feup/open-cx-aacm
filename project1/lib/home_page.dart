@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'objects.dart';
+import 'package:flutter/painting.dart';
+import 'dart:ui' as ui;
 import 'forum.dart';
 
 class HomePage extends StatefulWidget {
@@ -51,23 +53,30 @@ class MyHomePage extends State<HomePage> {
             for ( var i = 0; i < _counter; i++)
               new SizedBox(
                   width: 300,
-                  child: FlatButton.icon(
-                    color: Colors.lightBlue,
-                    textColor: Colors.white,
-                    icon: Icon(Icons.favorite_border), //`Icon` to display
-                    label: Text(listLectures[i].getName()), //`Text` to display
-                    padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  child:Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
+                    child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.lightBlue,width: 5.0),
+                      borderRadius: BorderRadius.circular(30),
+                            ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Forum()),
-                      );
-                  }
-              ))
-          ],
-
-        ),
+                    },
+                      padding: EdgeInsets.all(12),
+                      color: Colors.white,
+                      child: Text(listLectures[i].getName(),
+                          style: TextStyle( fontSize:20,foreground: Paint()
+                        ..shader = ui.Gradient.linear(
+                          const Offset(0, 20),
+                          const Offset(150, 20),
+                          <Color>[
+                            Colors.lightBlue,
+                            Colors.blueGrey,
+                          ],
+                        ))),
       ),
+    )
+      )],)),
       floatingActionButton: FloatingActionButton(
         onPressed:_incrementCounter,
         child: Icon(Icons.add),

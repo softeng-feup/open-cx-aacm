@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'feedback.dart';
 import 'profile.dart';
-import 'questions.dart';
-
 class Forum extends StatelessWidget {
   static BuildContext context;
 
@@ -106,7 +104,7 @@ class Forum extends StatelessWidget {
           color: Colors.white,
           onPressed: () {
             // Navigate back to first route when tapped.
-            Navigator.push(context , MaterialPageRoute(builder: (context) => QuestionForum()));
+            Navigator.push(context , MaterialPageRoute(builder: (context) => Profile()));
           },
           child: SizedBox(
               width: 350,
