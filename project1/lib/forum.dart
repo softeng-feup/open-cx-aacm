@@ -48,7 +48,9 @@ class ForumState extends State<Forum> {
                 )
               ]),
               talkResources,
+              if(now.minute>=14)
               talkFeedback,
+              if(now.minute>=14)
               talkForum,
               SizedBox(
                 height: 10,

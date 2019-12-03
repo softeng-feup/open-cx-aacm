@@ -43,19 +43,19 @@ class Profile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
-                onPressed: null,
+                onPressed: _launchURL,
                 padding: EdgeInsets.all(0.0),
                 child: Image.asset('assets/images/face.png',
                 height: 30,
                 width: 30,)),
               FlatButton(
-                  onPressed: null,
+                  onPressed: _launchURL,
                   padding: EdgeInsets.all(0.0),
                   child: Image.asset('assets/images/linkedin.jpg',
                     height: 50,
                     width: 50,)),
               FlatButton(
-                  onPressed: null,
+                  onPressed: _launchURL,
                   padding: EdgeInsets.all(0.0),
                   child: Image.asset('assets/images/twitter.png',
                     height: 30,
@@ -106,13 +106,14 @@ class Profile extends StatelessWidget {
       ),
     ),
   );
-}
+
 
 _launchURL() async {
-  const url = 'https://www.youtube.com/watch?v=eTa1jHk1Lxc';
+  const url = 'https://www.youtube.com/watch?v=2TvWZEVf6go';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
     throw 'Could not launch $url';
   }
+}
 }
