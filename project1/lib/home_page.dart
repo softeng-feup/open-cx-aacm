@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'objects.dart';
 import 'package:flutter/painting.dart';
-import 'dart:ui' as ui;
 import 'forum.dart';
 
 class HomePage extends StatefulWidget {
@@ -37,14 +36,14 @@ class MyHomePage extends State<HomePage> {
       getForumInfo(newLecture);
       listLectures.add(newLecture);}
     });}
+
   @override
   Widget build(BuildContext context) {
-    DateTime now = new DateTime.now();
     return Scaffold(
       appBar: AppBar(
         // Here we take the value frorm the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(now.minute.toString()),
+        title: Text(widget.title),
       ),
       body:
       new ListView.builder(
@@ -80,8 +79,8 @@ class MyHomePage extends State<HomePage> {
          child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
 
+  }
 }
 
 

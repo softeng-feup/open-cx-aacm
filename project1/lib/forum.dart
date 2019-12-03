@@ -2,16 +2,38 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'feedback.dart';
 import 'profile.dart';
-class Forum extends StatelessWidget {
-  static BuildContext context;
+import 'dart:async';
+
+class Forum extends StatefulWidget{
+  @override
+  ForumState  createState() => ForumState();
+}
+
+class ForumState extends State<Forum> {
+  static BuildContext context1;
+  DateTime now;
+
+  void _getTime() {
+    if (this.mounted)
+    setState(() {
+      now=DateTime.now();
+    });
+  }
 
   @override
-  Widget build(BuildContext context1) {
-    Forum.context = context1;
+  void initState() {
+    // TODO: implement initState
+    now=DateTime.now();
+    Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+      ForumState.context1 = context;
     return Scaffold(
         backgroundColor: Color(0xFFFAFAFA),
         appBar: AppBar(
-          title: Text("Live Feedback"),
+          title: Text(now.second.toString()),
           backgroundColor: Color(0xFF3EA6F2),
         ),
         body: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
@@ -48,7 +70,7 @@ class Forum extends StatelessWidget {
     color: Color(0xFFFAFAFA),
     onPressed: () {
       // Navigate back to first route when tapped.
-      BuildContext context2 = context;
+      BuildContext context2 = context1;
       Navigator.pop(context2);
     },
     child: SizedBox(
@@ -56,7 +78,7 @@ class Forum extends StatelessWidget {
           color: Colors.white,
           onPressed: () {
             // Navigate back to first route when tapped.
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
+            Navigator.push(context1, MaterialPageRoute(builder: (context) => Profile()));
           },
         child: Text('Speaker \n Name',
         style: TextStyle(
@@ -86,7 +108,7 @@ class Forum extends StatelessWidget {
           color: Colors.white,
           onPressed: () {
             // Navigate back to first route when tapped.
-            Navigator.pop(context);
+            Navigator.pop(context1);
           },
           child: SizedBox(
               width: 350,
@@ -103,7 +125,7 @@ class Forum extends StatelessWidget {
           color: Colors.white,
           onPressed: () {
             // Navigate back to first route when tapped.
-            Navigator.push(context , MaterialPageRoute(builder: (context) => Profile()));
+            Navigator.push(context1 , MaterialPageRoute(builder: (context) => Profile()));
           },
           child: SizedBox(
               width: 350,
@@ -120,7 +142,7 @@ class Forum extends StatelessWidget {
           color: Colors.white,
           onPressed: () {
             Navigator.push(
-            context,
+            context1,
             MaterialPageRoute(builder: (context) => SecondRoute())
             );
           },
@@ -139,7 +161,7 @@ class Forum extends StatelessWidget {
           color: Colors.white,
           onPressed: () {
             // Navigate back to first route when tapped.
-            Navigator.pop(context);
+            Navigator.pop(context1);
           },
           child: SizedBox(
               width: 350,
