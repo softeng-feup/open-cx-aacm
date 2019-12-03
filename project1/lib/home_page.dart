@@ -19,6 +19,9 @@ class MyHomePage extends State<HomePage> {
   int _counter = 0;
   List<ForumInfo> listLectures=[];
 
+  MyHomePage(){
+    listLectures.add(new ForumInfo());
+  }
   void getForumInfo(ForumInfo newForum) async{
     Navigator.push(
       context,
@@ -34,63 +37,51 @@ class MyHomePage extends State<HomePage> {
       getForumInfo(newLecture);
       listLectures.add(newLecture);}
     });}
-
   @override
   Widget build(BuildContext context) {
+    DateTime now = new DateTime.now();
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
+        // Here we take the value frorm the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(now.minute.toString()),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          children: <Widget>
-          [
-
-            for ( var i = 0; i < _counter; i++)
-              new SizedBox(
-                  width: 300,
-                  child:Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16.0),
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Colors.lightBlue,width: 5.0),
-                      borderRadius: BorderRadius.circular(30),
-                            ),
-                    onPressed: () {
-                        Navigator.push(context,  MaterialPageRoute(builder: (context) => Forum()));
-                    },
-                      padding: EdgeInsets.all(12),
-                      color: Colors.white,
-                      child: Text(listLectures[i].getName(),
-                          style: TextStyle(
-                              fontSize:20 ,
-                              foreground: Paint()
-                        ..shader = ui.Gradient.linear(
-                          const Offset(0, 20),
-                          const Offset(150, 20),
-                          <Color>[
-                            Colors.lightBlue,
-                            Colors.blueGrey,
-                          ],
-                        )
-                          )
-                      ),
-      ),
-    )
-      )
-          ],
-        )
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed:_incrementCounter,
-        child: Icon(Icons.add),
+      body:
+      new ListView.builder(
+          itemCount: listLectures.length,
+          itemBuilder: (context, index) {
+                  return SizedBox(
+                    width: 100,
+                        height: 70,
+                    child: Padding(
+                    padding:  EdgeInsets.all(8.0),
+                        child: RaisedButton(
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                                color: Colors.lightBlue, width: 5.0),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(
+                                    builder: (context) => Forum()));
+                          },
+                          padding: EdgeInsets.all(12),
+                          color: Colors.white,
+                          child: Text(listLectures[index].getName()
+                          ),
+                        ),
+                    )
+                  );
+                }
+    ),
+      floatingActionButton:FloatingActionButton(
+         onPressed: _incrementCounter,
+         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 }
 
 
