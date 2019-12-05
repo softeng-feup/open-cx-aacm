@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'feedback.dart';
 import 'profile.dart';
 import 'dart:async';
+import 'Questions.dart';
 
 class Forum extends StatefulWidget{
   @override
@@ -48,9 +49,9 @@ class ForumState extends State<Forum> {
                 )
               ]),
               talkResources,
-              if(now.minute>=14)
+              if(now.minute>=1)
               talkFeedback,
-              if(now.minute>=14)
+              if(now.minute>=1)
               talkForum,
               SizedBox(
                 height: 10,
@@ -162,8 +163,10 @@ class ForumState extends State<Forum> {
       child: RaisedButton(
           color: Colors.white,
           onPressed: () {
-            // Navigate back to first route when tapped.
-            Navigator.pop(context1);
+            Navigator.push(
+                context1,
+                MaterialPageRoute(builder: (context) => Questions())
+            );
           },
           child: SizedBox(
               width: 350,
