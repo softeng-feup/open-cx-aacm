@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed(HomePage.tag);
+          Navigator.of(context).pushReplacementNamed(HomePage.tag);
         },
         padding: EdgeInsets.all(12),
         color: Colors.lightBlueAccent,
