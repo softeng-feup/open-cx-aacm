@@ -6,8 +6,8 @@ import 'objects.dart';
 class Parser{
   List<User> people = [];
   List<Lecture> allLectures = [];
-  
-  List<User> loadAllPeople(){
+
+  Parser(){
     User u0 = new User(0, "Ana" , "1234", "ana@gmail.com");
     User u1 = new User(1, "Joao" , "abcd", "joao@gmail.com");
     User u2 = new User(2, "Maria" , "qwerty", "maria@gmail.com");
@@ -20,14 +20,6 @@ class Parser{
 
     people.add(u0); people.add(u1); people.add(u2); people.add(u3); people.add(u4); 
     people.add(s5); people.add(s6); people.add(s7); people.add(s8); 
-    return people;
-  }
-
-  List<Lecture> loadAllLectures(){
-    if(people == []){
-      loadAllPeople();
-    }
-   
     Date d1 = new Date(1,12,2019,14,23);
     Date d2 = new Date(2,12,2019,14,23);
 
@@ -52,6 +44,13 @@ class Parser{
     
     allLectures.add(l1);
     allLectures.add(l2);
+  }
+  
+  List<User> loadAllPeople(){
+   return people;
+  }
+
+  List<Lecture> loadAllLectures(){
     return allLectures;
   }
 
