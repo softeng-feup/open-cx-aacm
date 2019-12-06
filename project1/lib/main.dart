@@ -2,12 +2,22 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'home_page.dart';
+import 'info.dart';
+import 'parser.dart';
+
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
+  
+  static AllInfo info;
+
+  MyApp(){
+    info = new AllInfo();
+  }
 
   final routes = <String, WidgetBuilder>{
-    LoginPage.tag: (context) => LoginPage(),
+
+    LoginPage.tag: (context) => LoginPage(info),
     HomePage.tag: (context) => HomePage(title: 'Live Feedback'),
   };
   // This widget is the root of your application.
@@ -30,7 +40,7 @@ class MyApp extends StatelessWidget {
         title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
         body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
       )),
-      home: LoginPage(),
+      home: LoginPage(info),
       routes : routes,
     );
   }
