@@ -5,6 +5,8 @@ import 'home_page.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
+    static AllInfo info = new AllInfo();
+
 
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
