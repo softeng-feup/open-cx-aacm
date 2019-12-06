@@ -14,15 +14,15 @@ class QuestionsState extends State<Questions> {
 
   void _incrementCounter() async{
     if (this.mounted)
-    setState(() async {
-      final question = await Navigator.push(
-          QuestionsState.context1,
-          MaterialPageRoute(builder: (context1) => InfoQuestion())
-      );
+      setState(() async {
+        final question = await Navigator.push(
+            QuestionsState.context1,
+            MaterialPageRoute(builder: (context1) => InfoQuestion())
+        );
 
-      questions.add(question);
-      print(questions[1].getText());
-    });
+        questions.add(question);
+        print(questions[1].getText());
+      });
   }
 
   @override
@@ -49,7 +49,7 @@ class QuestionsState extends State<Questions> {
                           color: Colors.lightBlue, width: 5.0),
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    onPressed: null,
+                    onPressed: () { Navigator.push(context,MaterialPageRoute(builder: (context1) => Questions()));},
                     padding: EdgeInsets.all(12),
                     color: Colors.black,
                     child: Text(questions[index].getText()
