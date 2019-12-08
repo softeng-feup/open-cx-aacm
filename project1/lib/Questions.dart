@@ -53,7 +53,7 @@ class QuestionsState extends State<Questions> {
                     ),
                     onPressed: () { Navigator.push(context,MaterialPageRoute(builder: (context1) => Questions()));},
                     padding: EdgeInsets.all(12),
-                    color: Colors.black,
+                    color: Colors.white,
                     child: Text(questions[index].getText()
                     ),
                   ),
