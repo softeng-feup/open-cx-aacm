@@ -11,6 +11,7 @@ class AllInfo {
     this.allLectures = parser.loadAllLectures();
     this.people = parser.loadAllPeople();
   } 
+  
   List<Lecture> getAllLectures() {return allLectures;}
   List<User> getPeople() {return people;}
   void setAllLectures( List<Lecture> lectures){this.allLectures = lectures;}
