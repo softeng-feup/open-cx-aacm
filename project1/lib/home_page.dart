@@ -203,9 +203,10 @@ class MyHomePage extends State<HomePage>  with TickerProviderStateMixin  {
                 margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                 child: ListTile(
                   title: Text(event.toString()),
+                  subtitle: Text(info.getLectureInfo(event)),
                   onTap: () =>{
                     print('$event tapped!'),
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Forum()))
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Forum(info,event)))
                   } 
                 ),
               ))

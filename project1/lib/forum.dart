@@ -2,19 +2,30 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'profile.dart';
 import 'dart:async';
+import 'info.dart';
 import 'Questions.dart';
 import 'resources.dart';
 import 'talk_feedback.dart';
 
 
 class Forum extends StatefulWidget{
+ 
+  final AllInfo info;
+  String lectureName;
+  Forum(this.info, this.lectureName);
+
   @override
-  ForumState  createState() => ForumState();
+  ForumState  createState() => new ForumState(info, lectureName);
 }
 
 class ForumState extends State<Forum> {
+
   static BuildContext context1;
   DateTime now;
+  AllInfo info;
+  String lectureName;
+
+  ForumState(this.info, this.lectureName);
 
   void _getTime() {
     if (this.mounted)
@@ -36,7 +47,7 @@ class ForumState extends State<Forum> {
     return Scaffold(
         backgroundColor: Color(0xFFFAFAFA),
         appBar: AppBar(
-          title: Text(now.second.toString()),
+          //title: Text(now.second.toString()),
           backgroundColor: Color(0xFF3EA6F2),
         ),
         body: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
@@ -44,10 +55,55 @@ class ForumState extends State<Forum> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Row(mainAxisSize: MainAxisSize.max, children: [
-                talkTitle,
+                //LECTURE TITLE -------------------------------------------------------
+                SizedBox(
+                  child: Text(lectureName,
+                  style: TextStyle(
+                    decorationStyle: TextDecorationStyle.wavy,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  color: Color(0xFF3EA6F2))),
+                ),
                 SizedBox(width: 15),
                 Column(
-                  children: <Widget>[photo, speakerInfo],
+                  children: <Widget>[
+                    //PHOTO------------------------------------------------------------
+                    Hero(
+                      tag: 'hero',
+                      child: CircleAvatar(
+                      radius: 40.0,
+                      backgroundColor: Colors.black54,
+                      child: CircleAvatar(
+                        radius: 37.0,
+                        backgroundImage: AssetImage(info.getLecture(lectureName).getSpeaker().getPhoto()),
+                      ),
+                     )), 
+
+                    //SPEAKER INFO---------------------------------------------------
+                    RaisedButton(
+                    color: Color(0xFFFAFAFA),
+                    onPressed: () {
+                      // Navigate back to first route when tapped.
+                      BuildContext context2 = context1;
+                      Navigator.pop(context2);
+                    },
+                    child: SizedBox(
+                      child: RaisedButton(
+                          color: Colors.white,
+                          onPressed: () {
+                            // Navigate back to first route when tapped.
+                            Navigator.push(context1, MaterialPageRoute(builder: (context) => Profile(info,lectureName)));
+                          },
+                        child: Text(info.getLecture(lectureName).getSpeaker().getName(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Color(0xFF5A6779))
+                        )
+                      )
+                    ),
+                  )
+                  ],
                 )
               ]),
               talkResources,
@@ -63,48 +119,6 @@ class ForumState extends State<Forum> {
         ]));
   }
 
-  final talkTitle = SizedBox(
-    child: Text('Palestra 1',
-        style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 46,
-            color: Color(0xFF3EA6F2))),
-  );
-
-  final speakerInfo = RaisedButton(
-    color: Color(0xFFFAFAFA),
-    onPressed: () {
-      // Navigate back to first route when tapped.
-      BuildContext context2 = context1;
-      Navigator.pop(context2);
-    },
-    child: SizedBox(
-      child: RaisedButton(
-          color: Colors.white,
-          onPressed: () {
-            // Navigate back to first route when tapped.
-            Navigator.push(context1, MaterialPageRoute(builder: (context) => Profile()));
-          },
-        child: Text('Speaker \n Name',
-        style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
-            color: Color(0xFF5A6779))
-        )
-      )
-    ),
-  );
-
-  final photo = Hero(
-      tag: 'hero',
-      child: CircleAvatar(
-        radius: 40.0,
-        backgroundColor: Colors.black54,
-        child: CircleAvatar(
-          radius: 37.0,
-          backgroundImage: AssetImage("assets/images/speaker.jpg"),
-        ),
-      ));
 
   final talkResources = SizedBox(
       width: 350,
@@ -123,14 +137,14 @@ class ForumState extends State<Forum> {
                       fontSize: 18,
                       color: Color(0xFF5A6779))))));
 
-  final askQuestion = SizedBox(
+  /*final askQuestion = SizedBox(
       width: 350,
       height: 60,
       child: RaisedButton(
           color: Colors.white,
           onPressed: () {
             // Navigate back to first route when tapped.
-            Navigator.push(context1 , MaterialPageRoute(builder: (context) => Profile()));
+            Navigator.push(context1 , MaterialPageRoute(builder: (context) => Profile(info,lectureName)));
           },
           child: SizedBox(
               width: 350,
@@ -138,7 +152,7 @@ class ForumState extends State<Forum> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: Color(0xFF5A6779))))));
+                      color: Color(0xFF5A6779))))));*/
 
   /*final talkFeedback = SizedBox(
       width: 350,
@@ -192,7 +206,7 @@ class ForumState extends State<Forum> {
           },
           child: SizedBox(
               width: 350,
-              child: Text('Forum',
+              child: Text('Question Forum',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,

@@ -1,14 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:project1/home_page.dart';
 import 'package:file_picker/file_picker.dart';
-
 
 class Lecture {
 
   String name;
   String text;
   DateTime date;
-  Time time;
+  DateTime time;
   String room;
   Speaker speaker;
   List<Question> questionForum = [];
@@ -20,7 +17,7 @@ class Lecture {
   String getName() {return name;}
   String getText(){return text;}
   DateTime getDate(){return date;}
-  Time getTime(){return time;}
+  DateTime getTime(){return time;}
   String getRoom() {return room;}
   Speaker getSpeaker() {return speaker;}
   List<Question> getQuestionForum(){return questionForum;}
@@ -30,8 +27,7 @@ class Lecture {
   void setText( String text) {this.text= text;}
   void setDate(DateTime d){this.date = d;}
   void setRoom( String room) {this.room= room;}
-  void setTime(Time t){this.time= t;}
-
+  void setTime(DateTime t){this.time= t;}
 
   void addQuestion(Question q){questionForum.add(q);}
   void addFeedback(FeedBack f){feedbackForum.add(f);}
@@ -43,7 +39,7 @@ class FeedBack {
   User user;
   String text;
   DateTime date;
-  Time time;
+  DateTime time;
   int stars;
   FeedBack(this.id,this.user,this.text,this.stars,this.date,this.time);
 
@@ -51,12 +47,12 @@ class FeedBack {
   User getUser(){return user;}
   String getText(){return text;}
   DateTime getDate(){return date;}
-  Time getTime(){return time;}
+  DateTime getTime(){return time;}
 
   void setUser(User usr){this.user = usr;}
   void setText(String text){this.text = text;}
   void setDate(DateTime d){this.date = d;}
-  void setTime(Time t){this.time= t;}
+  void setTime(DateTime t){this.time= t;}
 }
 
 class Question {
@@ -65,7 +61,7 @@ class Question {
   String title;
   String description;
   DateTime date;
-  Time time;
+  DateTime time;
   Answer answer;
 
   Question(this.id, this.user, this.description, this.date, this.time);
@@ -75,14 +71,14 @@ class Question {
   String getText(){return description;}
   DateTime getDate(){return date;}
   Answer getAnswer(){return answer;}
-  Time getTime(){return time;}
+  DateTime getTime(){return time;}
 
   void setPerson(User usr){this.user = usr;}
   void setDescription( String description){this.description = description;}
   void setDate(DateTime d){this.date = d;}
   void setAnswer(Answer a){this.answer = a;}
   void setName( String title){this.title =  title;}
-  void setTime(Time t){this.time= t;}
+  void setTime(DateTime t){this.time= t;}
 
 }
 
@@ -91,18 +87,18 @@ class Answer{
   Speaker speaker;
   String text;
   DateTime date;
-  Time time;
+  DateTime time;
 
   Answer(this.id,this.speaker,this.text,this.date, this.time);
   int getId(){return id;}
   Speaker getSpeaker(){return speaker;}
   String getText(){return text;}
   DateTime getDate(){return date;}
-  Time gettime(){return time;}
+  DateTime gettime(){return time;}
   void setSpeaker(Speaker sp){this.speaker = sp;}
   void setText(String text){this.text = text;}
   void setDate(DateTime d){this.date = d;}
-  void setTime(Time t){this.time= t;}
+  void setTime(DateTime t){this.time= t;}
 
 }
 
@@ -130,8 +126,9 @@ class User {
   int id;
   String name;
   String password;
-  String photo = 'https://corporatefinanceinstitute.com/assets/professional-1200x747.jpg';
+  String photo = 'assets/images/default.jpg';
   String email;
+  String description = "Missing Description";
 
   User(this.id, this.name, this.password, this.email);
 
@@ -140,10 +137,14 @@ class User {
   String getPass() {return password;}
   String getPhoto(){return photo;}
   String getEmail() {return email;}
+  String getDescription() { return this.description;}
+
   void setName(String name) { this.name = name;}
   void setPass(String pass) {this.password = pass;}
   void setPhoto(String photo){ this.photo = photo;}
   void setEmail(String email) { this.email = email;}
+  void setDescription(String d) { this.description = d;}
+
 }
 
 class Speaker extends User{
@@ -157,14 +158,7 @@ class Speaker extends User{
   void addLecture(Lecture lect){lectures.add(lect);}
 }
 
-class Time {
-  int hour;
-  int minutes;
 
-  Time(this.hour, this.minutes);
-  int getHour(){return hour;}
-  int getMinutes(){return minutes;}
-}
 
 class RateData {
   int rate;

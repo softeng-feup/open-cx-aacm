@@ -12,19 +12,24 @@ class Parser{
     User u3 = new User(3, "Joana" , "sim", "joana@gmail.com");
     User u4 = new User(4, "Carlos" , "tyu", "carlos@gmail.com");
     User s5 = new Speaker(5, "Jorge" , "1234", "jorge@gmail.com");
-    User s6 = new Speaker(5, "Sonia" , "carro", "sonia@gmail.com");
+    User s6 = new Speaker(5, "Regina" , "carro", "regina@gmail.com");
     User s7 = new Speaker(5, "Mariana" , "ola", "mariana@gmail.com");
     User s8 = new Speaker(5, "Carla Santos" , "asdf", "carlaS@gmail.com");
+
+    String des = "I love what I do! If want to know more about me follow my accounts";
+    s5.setDescription(des);
 
     people.add(u0); people.add(u1); people.add(u2); people.add(u3); people.add(u4); 
     people.add(s5); people.add(s6); people.add(s7); people.add(s8); 
     
     DateTime d1 = new DateTime(2019,12,1);
-    Time t1 =new Time(14,23);
+    DateTime t1 =new DateTime(2019,12,1,23);
+
     DateTime d2 = new DateTime(2019,12,10);
-    Time t2 =new Time(15,23);
+    DateTime t2 =new DateTime(2019,12,10,5,23);
+
     DateTime d3 = new DateTime(2019,12,10);
-    Time t3 =new Time(16,23);
+    DateTime t3 =new DateTime(2019,12,10,16,23);
 
     FeedBack f1 = new FeedBack(0, people[0], "gostei", 4, d1,t1);
     FeedBack f2 = new FeedBack(1, people[1], "bastante interessante", 5, d2, t2);
@@ -41,11 +46,11 @@ class Parser{
     l1.addFeedback(f1); l1.addFeedback(f2);
     l1.addQuestion(q1);
 
-    Lecture l2 = new Lecture("Trasporte Industrial", "Transporte de cargas", d2, t1,"B003", people[6]);
+    Lecture l2 = new Lecture("Trasporte Industrial", "Transporte de cargas", d2, t2,"B003", people[6]);
     l2.addFeedback(f1); l2.addFeedback(f2);
     l2.addQuestion(q2);
 
-    Lecture l3 = new Lecture("Industria 4.0", "Indústria 4.0 ou Quarta Revolução Industrial é uma expressão que engloba algumas tecnologias para automação e troca de dados", d3, t3, "B003", people[6]);
+    Lecture l3 = new Lecture("Industria 4.0", "Indústria 4.0 ou Quarta Revolução Industrial", d3, t3, "B003", people[6]);
     
     allLectures.add(l1); allLectures.add(l2); allLectures.add(l3);
   }
