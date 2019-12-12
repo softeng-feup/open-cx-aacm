@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'profile.dart';
 import 'dart:async';
 import 'Questions.dart';
+import 'resources.dart';
 import 'talk_feedback.dart';
+
 
 class Forum extends StatefulWidget{
   @override
@@ -111,11 +113,11 @@ class ForumState extends State<Forum> {
           color: Colors.white,
           onPressed: () {
             // Navigate back to first route when tapped.
-            Navigator.pop(context1);
+            Navigator.push(context1, MaterialPageRoute(builder: (context1) => Upload()));
           },
           child: SizedBox(
               width: 350,
-              child: Text('Consult resources',
+              child: Text('Resources',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,

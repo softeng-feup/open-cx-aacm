@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'objects.dart';
+import 'package:project1/info.dart';
 import 'star_rating.dart';
 
 class Feedbacks extends StatefulWidget {
@@ -155,4 +155,14 @@ class InfoFeedback extends StatelessWidget {
   }
 }
 
+class RateData {
+  int rate;
+  String comment;
 
+  RateData(rate, comment);
+
+  int getRate(){return rate;}
+
+  String getComment(){return comment;}
+
+}

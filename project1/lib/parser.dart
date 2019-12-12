@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
-import 'dart:io';
 import 'objects.dart';
-
 
 class Parser{
   List<User> people = [];
   List<Lecture> allLectures = [];
+  List<Resource> resources=[];
 
   Parser(){
     User u0 = new User(0, "Ana" , "1234", "ana@gmail.com");
@@ -58,6 +56,10 @@ class Parser{
 
   List<Lecture> loadAllLectures(){
     return allLectures;
+  }
+
+  List<Resource> loadAllResources(){
+    return resources;
   }
 
 }
