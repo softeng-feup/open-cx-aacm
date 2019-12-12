@@ -131,9 +131,9 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	 
 **Answer Questions**
 
-* **Actor** : Speaker
+* **Actor** : Participant
 
-* **Description** : The speaker can respond to questions raised by participants during his lecture.
+* **Description** : Participants can respond to questions raised by participants during his lecture.
 
 * **Preconditions and Postconditions**. The speaker may answer any questions posed in his lecture (preconditions); any of these actions will be reflected in the discussion forum for the talk in question.
 
@@ -156,35 +156,11 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	 
 	 
 	 
-**Delete Questions**
-
-* **Actor** : Speaker
-
-* **Description** : The speaker can delete questions raised by participants during his lecture.
-
-* **Preconditions and Postconditions**. The speaker may remove any questions posed in his lecture (preconditions); any of these actions will be reflected in the discussion forum for the talk in question.
-
-* **Normal Flow**. 
-  * Actor selects lecture.
-  * Actor selects a question. 
-  * Actor deletes question - A1 Actor doesn't delete question -
-  * Question is no longer available for everyone to see.
-  * Returns to the lecture questions page.
-
-* **Alternative Flows and Exceptions**. 
-
-   * A1 - Actor doesn't delete question.
-   	  * System asks if user really wants leave without removing the question.
-	  * If selected yes, cases continues at Returns to the lecture questions page.
-	  * If selected no, cases continues at Actor selects a question. 
-	 
-	 
-	 
 **Consult Feedback**
 
-* **Actor** : Speaker
+* **Actor** : Participant
 
-* **Description** : The speaker can consult the feedback given by participants during his lecture.
+* **Description** : Participants can consult the feedback given by participants during his lecture.
 
 * **Preconditions and Postconditions**. The speaker can read the feedback left by the participants about all the parts of the lecture.
 
@@ -197,9 +173,9 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 **Share Resources**
 
-* **Actor** : Speaker
+* **Actor** : Participant
 
-* **Description** : Speaker can share all the resources used during presentation with participants.
+* **Description** : Participants can share all the resources used during presentation with participants.
 
 * **Preconditions and Postconditions**. The speaker can share material with participants present in his lecture (preconditions); it will be available during and after it (postconditions).
 
@@ -237,8 +213,34 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	  * If selected yes, cases continues at Actor selects a file.
 	  * If selected no, cases continues at Returns to the lectures main page.
 
+ 
+	 
+	 
+**Delete Questions**
 
+* **Actor** : Speaker
 
+* **Description** : The speaker can delete questions raised by participants during his lecture.
+
+* **Preconditions and Postconditions**. The speaker may remove any questions posed in his lecture (preconditions); any of these actions will be reflected in the discussion forum for the talk in question.
+
+* **Normal Flow**. 
+  * Actor selects lecture.
+  * Actor selects a question. 
+  * Actor deletes question - A1 Actor doesn't delete question -
+  * Question is no longer available for everyone to see.
+  * Returns to the lecture questions page.
+
+* **Alternative Flows and Exceptions**. 
+
+   * A1 - Actor doesn't delete question.
+   	  * System asks if user really wants leave without removing the question.
+	  * If selected yes, cases continues at Returns to the lecture questions page.
+	  * If selected no, cases continues at Actor selects a question. 
+	  
+	  
+	  
+	  
 ### User stories
 This section contains the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
 
