@@ -20,30 +20,36 @@ class Parser{
 
     people.add(u0); people.add(u1); people.add(u2); people.add(u3); people.add(u4); 
     people.add(s5); people.add(s6); people.add(s7); people.add(s8); 
-    Date d1 = new Date(1,12,2019,14,23);
-    Date d2 = new Date(2,12,2019,14,23);
+    
+    DateTime d1 = new DateTime(2019,12,1);
+    Time t1 =new Time(14,23);
+    DateTime d2 = new DateTime(2019,12,10);
+    Time t2 =new Time(15,23);
+    DateTime d3 = new DateTime(2019,12,10);
+    Time t3 =new Time(16,23);
 
-    FeedBack f1 = new FeedBack(0, people[0], "gostei", 4);
-    FeedBack f2 = new FeedBack(1, people[1], "bastante interessante", 5);
+    FeedBack f1 = new FeedBack(0, people[0], "gostei", 4, d1,t1);
+    FeedBack f2 = new FeedBack(1, people[1], "bastante interessante", 5, d2, t2);
 
-    Answer a1 = new Answer(0, people[5], "Não consigo ajudar pois ainda não foi investigado", d2);
-    Question q1 = new Question(0, people[1], "porque é que isso acontece?", d1);
+    Answer a1 = new Answer(0, people[5], "Não consigo ajudar pois ainda não foi investigado", d2, t2);
+    Question q1 = new Question(0, people[1], "porque é que isso acontece?", d1, t1);
     q1.setAnswer(a1);
 
-    Answer a2 = new Answer(1, people[6], "Veja o meu perfil para mais informação", d2);
-    Question q2 = new Question(1, people[0], "irá voltar a dar esta palestra?", d1);
+    Answer a2 = new Answer(1, people[6], "Veja o meu perfil para mais informação", d2, t2);
+    Question q2 = new Question(1, people[0], "irá voltar a dar esta palestra?", d1, t2);
     q2.setAnswer(a2);
 
-    Lecture l1 = new Lecture("Comunicação", "Como comunicar", d1, "B001", people[5]);
+    Lecture l1 = new Lecture("Comunicação", "Como comunicar", d1, t1,"B001", people[5]);
     l1.addFeedback(f1); l1.addFeedback(f2);
     l1.addQuestion(q1);
 
-    Lecture l2 = new Lecture("Trasporte Industrial", "Transporte de cargas", d1, "B003", people[6]);
+    Lecture l2 = new Lecture("Trasporte Industrial", "Transporte de cargas", d2, t1,"B003", people[6]);
     l2.addFeedback(f1); l2.addFeedback(f2);
     l2.addQuestion(q2);
+
+    Lecture l3 = new Lecture("Industria 4.0", "Indústria 4.0 ou Quarta Revolução Industrial é uma expressão que engloba algumas tecnologias para automação e troca de dados", d3, t3, "B003", people[6]);
     
-    allLectures.add(l1);
-    allLectures.add(l2);
+    allLectures.add(l1); allLectures.add(l2); allLectures.add(l3);
   }
   
   List<User> loadAllPeople(){

@@ -18,4 +18,7 @@ class AllInfo {
   void setPeople(List<User> people){this.people = people;}
   void addLecture(Lecture lecture ){allLectures.add(lecture);}
   void addPerson(User person){people.add(person);}
+
+
+
 }

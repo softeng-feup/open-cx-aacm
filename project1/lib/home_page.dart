@@ -1,160 +1,219 @@
 import 'package:flutter/material.dart';
-import 'objects.dart';
 import 'package:flutter/painting.dart';
 import 'forum.dart';
+import 'objects.dart';
+import 'info.dart';
+import 'package:table_calendar/table_calendar.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
 
 class HomePage extends StatefulWidget {
 
-  HomePage({Key key, this.title}) : super(key: key);
+  HomePage(this.title,this.info);
 
   static String tag = 'home-page';
   final String title;
+  final AllInfo info;
 
   @override
-  MyHomePage createState() => MyHomePage();
+  MyHomePage createState() => MyHomePage(info);
 }
 
-class MyHomePage extends State<HomePage> {
-  int _counter = 0;
-  List<ForumInfo> listLectures=[];
 
-  MyHomePage(){
-    listLectures.add(new ForumInfo());
-  }
-  void getForumInfo(ForumInfo newForum) async{
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => InfoScreen(newForum)),
+class MyHomePage extends State<HomePage>  with TickerProviderStateMixin  {
+  
+  MyHomePage(this.info);
+
+  AllInfo info;
+
+  Map<DateTime, List> _events;
+  List _selectedEvents;
+  AnimationController _animationController;
+  CalendarController _calendarController;
+
+   @override
+  void initState() {
+    super.initState();
+    final _selectedDay = DateTime.now();
+    _events = {};
+
+    //upload all events to a map
+    for(int i=0; i<info.getAllLectures().length;i++){
+      if(_events.keys.contains(info.getAllLectures()[i].getDate())){
+        List values = _events[info.getAllLectures()[i].getDate()];
+        values.add(info.getAllLectures()[i].getName());
+        _events[info.getAllLectures()[i].getDate()] = values;
+      }
+      else{
+        final Map<DateTime, List> _temp = {info.getAllLectures()[i].getDate(): [info.getAllLectures()[i].getName()]};
+        _events.addAll(_temp);
+      }   
+    }
+
+    _selectedEvents = _events[_selectedDay] ?? [];
+    _calendarController = CalendarController();
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 400),
     );
+
+    _animationController.forward();
+  }
+  @override
+  void dispose() {
+    _animationController.dispose();
+    _calendarController.dispose();
+    super.dispose();
+  }
+   void _onDaySelected(DateTime day, List events) {
+    print('CALLBACK: _onDaySelected');
+    setState(() {
+      _selectedEvents = events;
+    });
   }
 
-  void _incrementCounter(){
-    setState(() {
-      if(_counter <12){
-        _counter ++;
-      ForumInfo newLecture = new ForumInfo();
-      getForumInfo(newLecture);
-      listLectures.add(newLecture);}
-    });}
+  void _onVisibleDaysChanged(DateTime first, DateTime last, CalendarFormat format) {
+    print('CALLBACK: _onVisibleDaysChanged');
+  }
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value frorm the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body:
-      new ListView.builder(
-          itemCount: listLectures.length,
-          itemBuilder: (context, index) {
-                  return SizedBox(
-                    width: 100,
-                        height: 70,
-                    child: Padding(
-                    padding:  EdgeInsets.all(8.0),
-                        child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.lightBlue, width: 5.0),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(
-                                    builder: (context) => Forum()));
-                          },
-                          padding: EdgeInsets.all(12),
-                          color: Colors.white,
-                          child: Text(listLectures[index].getName()
-                          ),
-                        ),
-                    )
-                  );
-                }
-    ),
-      floatingActionButton:FloatingActionButton(
-         onPressed: _incrementCounter,
-         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+           _buildTableCalendarWithBuilders(),
+          const SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
+          Expanded(child: _buildEventList()),
+        ],
+      ),
     );
+  }
 
+  // More advanced TableCalendar configuration (using Builders & Styles)
+  Widget _buildTableCalendarWithBuilders() {
+    return TableCalendar(
+      calendarController: _calendarController,
+      events: _events,
+      initialCalendarFormat: CalendarFormat.week,
+      formatAnimation: FormatAnimation.slide,
+      startingDayOfWeek: StartingDayOfWeek.monday,
+      availableGestures: AvailableGestures.all,
+      calendarStyle: CalendarStyle(
+        selectedColor: Colors.lightBlue[400],
+        todayColor: Colors.deepOrange[300],
+        markersColor: Colors.lightBlue[700],
+        outsideDaysVisible: false,
+      ),
+      daysOfWeekStyle: DaysOfWeekStyle(
+        weekendStyle: TextStyle().copyWith(color: Colors.deepOrange[600]),
+      ),
+      headerStyle: HeaderStyle(
+        centerHeaderTitle: true,
+        formatButtonVisible: false,
+      ),
+      builders: CalendarBuilders(
+        selectedDayBuilder: (context, date, _) {
+          return FadeTransition(
+            opacity: Tween(begin: 0.0, end: 1.0).animate(_animationController),
+            child: Container(
+              margin: const EdgeInsets.all(4.0),
+              padding: const EdgeInsets.only(top: 5.0, left: 6.0),
+              color: Colors.blue[300],
+              width: 100,
+              height: 100,
+              child: Text(
+                '${date.day}',
+                style: TextStyle().copyWith(fontSize: 16.0),
+              ),
+            ),
+          );
+        },
+        todayDayBuilder: (context, date, _) {
+          return Container(
+            margin: const EdgeInsets.all(4.0),
+            padding: const EdgeInsets.only(top: 5.0, left: 6.0),
+            color: Colors.blue[100],
+            width: 100,
+            height: 100,
+            child: Text(
+              '${date.day}',
+              style: TextStyle().copyWith(fontSize: 16.0),
+            ),
+          );
+        },
+        markersBuilder: (context, date, events, holidays) {
+          final children = <Widget>[];
+          if (events.isNotEmpty) {
+            children.add(
+              Positioned(
+                right: 1,
+                bottom: 1,
+                child: _buildEventsMarker(date, events),
+              ),
+            );
+          }
+          return children;
+        },
+      ),
+      onDaySelected: (date, events) {
+        _onDaySelected(date, events);
+        _animationController.forward(from: 0.0);
+      },
+      onVisibleDaysChanged: _onVisibleDaysChanged,
+    );
+  }
+
+  Widget _buildEventsMarker(DateTime date, List events) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: _calendarController.isSelected(date)
+            ? Colors.deepOrange[500]
+            : _calendarController.isToday(date) ? Colors.deepOrange[300] : Colors.blue[400],
+      ),
+      width: 16.0,
+      height: 16.0,
+      child: Center(
+        child: Text(
+          '${events.length}',
+          style: TextStyle().copyWith(
+            color: Colors.white,
+            fontSize: 12.0,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildEventList() {
+    return ListView(
+      children: _selectedEvents
+          .map((event) => Container(
+                decoration: BoxDecoration(
+                  border: Border.all(width: 0.8),
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                child: ListTile(
+                  title: Text(event.toString()),
+                  onTap: () =>{
+                    print('$event tapped!'),
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Forum()))
+                  } 
+                ),
+              ))
+          .toList(),
+    );
   }
 }
 
 
-class InfoScreen extends StatelessWidget { //adicionar palestra
-  static final formKey = GlobalKey<FormState>();
-  ForumInfo newForm;
-  InfoScreen (this.newForm);
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Adicionar nova palestra'),
-        ),
-        body: Card(
-          child: new SingleChildScrollView(
-          child:Padding(padding: EdgeInsets.all(8.0),
-            child: Form(
-              key: formKey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  TextFormField(
-                    decoration: InputDecoration(
-                        labelText: 'Nome da palestra: '
-                    ),
-                    onSaved: (String val) =>  newForm.setName(val),
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        labelText: 'Descrição:'
-                    ),
-                    onSaved: (String val) => newForm.setText(val),
-                  ),
-                  TextFormField(
-                    keyboardType: TextInputType.numberWithOptions(),
-                    decoration: InputDecoration(
-                        labelText: 'Hora:'
-                    ),
-                    onSaved: (String val) => newForm.setHour(int.parse(val)),
-                  ),
-                  TextFormField(
-                    keyboardType: TextInputType.numberWithOptions(),
-                    decoration: InputDecoration(
-                        labelText: 'Minuto:'
-                    ),
-                    onSaved: (String val) => newForm.setMinutes(int.parse(val)),
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        labelText: 'Sala:'
-                    ),
-                    onSaved: (String val) => newForm.setRoom(val),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: RaisedButton(
-                          onPressed:(){ _submit();
-                          Navigator.pop(context);},
-                          child: Text('Submit'),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-          )),
-        ));
-}
-  void _submit(){
-      formKey.currentState.save();
-    }
 
-}
+

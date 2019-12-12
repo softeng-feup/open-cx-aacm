@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'feedback.dart';
 import 'profile.dart';
 import 'dart:async';
 import 'Questions.dart';
+import 'talk_feedback.dart';
 
 class Forum extends StatefulWidget{
   @override
@@ -16,9 +16,9 @@ class ForumState extends State<Forum> {
 
   void _getTime() {
     if (this.mounted)
-      setState(() {
-        now=DateTime.now();
-      });
+    setState(() {
+      now=DateTime.now();
+    });
   }
 
   @override
@@ -30,7 +30,7 @@ class ForumState extends State<Forum> {
   }
   @override
   Widget build(BuildContext context) {
-    ForumState.context1 = context;
+      ForumState.context1 = context;
     return Scaffold(
         backgroundColor: Color(0xFFFAFAFA),
         appBar: AppBar(
@@ -50,9 +50,9 @@ class ForumState extends State<Forum> {
               ]),
               talkResources,
               if(now.minute>=1)
-                talkFeedback,
+              talkFeedback,
               if(now.minute>=1)
-                talkForum,
+              talkForum,
               SizedBox(
                 height: 10,
               ),
@@ -77,19 +77,19 @@ class ForumState extends State<Forum> {
       Navigator.pop(context2);
     },
     child: SizedBox(
-        child: RaisedButton(
-            color: Colors.white,
-            onPressed: () {
-              // Navigate back to first route when tapped.
-              Navigator.push(context1, MaterialPageRoute(builder: (context) => Profile()));
-            },
-            child: Text('Speaker \n Name',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: Color(0xFF5A6779))
-            )
+      child: RaisedButton(
+          color: Colors.white,
+          onPressed: () {
+            // Navigate back to first route when tapped.
+            Navigator.push(context1, MaterialPageRoute(builder: (context) => Profile()));
+          },
+        child: Text('Speaker \n Name',
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+            color: Color(0xFF5A6779))
         )
+      )
     ),
   );
 
@@ -138,6 +138,26 @@ class ForumState extends State<Forum> {
                       fontSize: 18,
                       color: Color(0xFF5A6779))))));
 
+  /*final talkFeedback = SizedBox(
+      width: 350,
+      height: 60,
+      child: RaisedButton(
+          color: Colors.white,
+          onPressed: () {
+            Navigator.push(
+            context1,
+            MaterialPageRoute(builder: (context) => SecondRoute())
+            );
+          },
+          child: SizedBox(
+              width: 350,
+              child: Text('Feedback',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Color(0xFF5A6779))))));*/
+
+
   final talkFeedback = SizedBox(
       width: 350,
       height: 60,
@@ -146,7 +166,7 @@ class ForumState extends State<Forum> {
           onPressed: () {
             Navigator.push(
                 context1,
-                MaterialPageRoute(builder: (context) => SecondRoute())
+                MaterialPageRoute(builder: (context) => Feedbacks())
             );
           },
           child: SizedBox(

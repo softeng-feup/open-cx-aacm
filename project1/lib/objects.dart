@@ -5,18 +5,20 @@ class Lecture {
 
   String name;
   String text;
-  Date date;
+  DateTime date;
+  Time time;
   String room;
   Speaker speaker;
   List<Question> questionForum = [];
   List<FeedBack> feedbackForum = [];
   List<Resource> resources = [];
 
-  Lecture(this.name, this.text, this.date, this.room, this.speaker);
+  Lecture(this.name, this.text, this.date,this.time, this.room, this.speaker, );
 
   String getName() {return name;}
   String getText(){return text;}
-  Date getDate(){return date;}
+  DateTime getDate(){return date;}
+  Time getTime(){return time;}
   String getRoom() {return room;}
   Speaker getSpeaker() {return speaker;}
   List<Question> getQuestionForum(){return questionForum;}
@@ -24,8 +26,10 @@ class Lecture {
   List<Resource> getResources(){return resources;}
   void setName( String name) {this.name= name;}
   void setText( String text) {this.text= text;}
-  void setDate(Date d){this.date = d;}
+  void setDate(DateTime d){this.date = d;}
   void setRoom( String room) {this.room= room;}
+  void setTime(Time t){this.time= t;}
+
 
   void addQuestion(Question q){questionForum.add(q);}
   void addFeedback(FeedBack f){feedbackForum.add(f);}
@@ -36,18 +40,21 @@ class FeedBack {
   int id;
   User user;
   String text;
-  Date date;
+  DateTime date;
+  Time time;
   int stars;
-  FeedBack(this.id,this.user,this.text,this.stars);
+  FeedBack(this.id,this.user,this.text,this.stars,this.date,this.time);
 
   int getId(){return id;}
   User getUser(){return user;}
   String getText(){return text;}
-  Date getDate(){return date;}
+  DateTime getDate(){return date;}
+  Time getTime(){return time;}
+
   void setUser(User usr){this.user = usr;}
   void setText(String text){this.text = text;}
-  void setDate(Date d){this.date = d;}
-
+  void setDate(DateTime d){this.date = d;}
+  void setTime(Time t){this.time= t;}
 }
 
 class Question {
@@ -55,22 +62,25 @@ class Question {
   User user;
   String title;
   String description;
-  Date date;
+  DateTime date;
+  Time time;
   Answer answer;
 
-  Question(this.id, this.user, this.description, this.date);
+  Question(this.id, this.user, this.description, this.date, this.time);
 
   int getId(){return id;}
   User getUser(){return user;}
   String getText(){return description;}
-  Date getDate(){return date;}
+  DateTime getDate(){return date;}
   Answer getAnswer(){return answer;}
-  
+  Time getTime(){return time;}
+
   void setPerson(User usr){this.user = usr;}
   void setDescription( String description){this.description = description;}
-  void setDate(Date d){this.date = d;}
+  void setDate(DateTime d){this.date = d;}
   void setAnswer(Answer a){this.answer = a;}
   void setName( String title){this.title =  title;}
+  void setTime(Time t){this.time= t;}
 
 }
 
@@ -78,16 +88,20 @@ class Answer{
   int id;
   Speaker speaker;
   String text;
-  Date date;
+  DateTime date;
+  Time time;
 
-  Answer(this.id,this.speaker,this.text,this.date);
+  Answer(this.id,this.speaker,this.text,this.date, this.time);
   int getId(){return id;}
   Speaker getSpeaker(){return speaker;}
   String getText(){return text;}
-  Date getDate(){return date;}
+  DateTime getDate(){return date;}
+  Time gettime(){return time;}
   void setSpeaker(Speaker sp){this.speaker = sp;}
   void setText(String text){this.text = text;}
-  void setDate(Date d){this.date = d;}
+  void setDate(DateTime d){this.date = d;}
+  void setTime(Time t){this.time= t;}
+
 }
 
 class Resource{
@@ -137,46 +151,19 @@ class Speaker extends User{
   void addLecture(Lecture lect){lectures.add(lect);}
 }
 
-class Date {
-  int day;
-  int month;
-  int year;
+class Time {
   int hour;
   int minutes;
 
-  Date(this.day, this.month, this.year, this.hour, this.minutes);
-  int getDay(){return day;}
-  int getMonth(){return month;}
-  int getYear(){return year;}
+  Time(this.hour, this.minutes);
   int getHour(){return hour;}
   int getMinutes(){return minutes;}
 }
 
-class ForumInfo {
-
-  String name;
-  String text;
-  int hour;
-  int minutes;
-  String room;
-
-ForumInfo(){
-  this.name= "temp";
-  this.text = "informacao sobre a palestra, superrrr importante";
-  this.hour = 1;
-  this.minutes = 2;
-  this.room =" default";
-}
-  String getName() {return name;}
-  String getText(){return text;}
-  int getHour() {return hour;}
-  int getMinutes() {return minutes;}
-  String getRoom() {return room;}
-
-  void setName( String name) {this.name= name;}
-  void setText( String text) {this.text= text;}
-  void setHour( int hour) {this.hour= hour;}
-  void setMinutes( int minutes ) {this.minutes= minutes;}
-  void setRoom( String room) {this.room= room;}
-
+class RateData {
+  int rate;
+  String comment;
+  RateData(rate, comment);
+  int getRate(){return rate;}
+  String getComment(){return comment;}
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'star_rating.dart';
+
 
 class SecondRoute extends StatelessWidget {
   static BuildContext context;

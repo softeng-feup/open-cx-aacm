@@ -1,12 +1,13 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'home_page.dart';
 import 'info.dart';
-import 'parser.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 
-void main() => runApp(MyApp());
+void main() {
+  initializeDateFormatting().then((_) => runApp(MyApp()));
+}
 class MyApp extends StatelessWidget {
   
   static AllInfo info;
@@ -16,9 +17,8 @@ class MyApp extends StatelessWidget {
   }
 
   final routes = <String, WidgetBuilder>{
-
     LoginPage.tag: (context) => LoginPage(info),
-    HomePage.tag: (context) => HomePage(title: 'Live Feedback'),
+    HomePage.tag: (context) => HomePage( 'Live Feedback', info),
   };
   // This widget is the root of your application.
   @override
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.lightBlueAccent,
-        accentColor: Colors.blue,
+        accentColor: Colors.lightBlue,
 
         // Define the default font family.
         fontFamily: 'Montserrat',
