@@ -58,7 +58,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### Use case diagram 
 
-![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram.png) 
+![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/Use%20Case%20Diagram.png) 
 
 
 **Give Feedback**
@@ -131,9 +131,9 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	 
 **Answer Questions**
 
-* **Actor** : Speaker
+* **Actor** : Participant
 
-* **Description** : The speaker can respond to questions raised by participants during his lecture.
+* **Description** : Participants can respond to questions raised by participants during his lecture.
 
 * **Preconditions and Postconditions**. The speaker may answer any questions posed in his lecture (preconditions); any of these actions will be reflected in the discussion forum for the talk in question.
 
@@ -156,35 +156,11 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	 
 	 
 	 
-**Delete Questions**
-
-* **Actor** : Speaker
-
-* **Description** : The speaker can delete questions raised by participants during his lecture.
-
-* **Preconditions and Postconditions**. The speaker may remove any questions posed in his lecture (preconditions); any of these actions will be reflected in the discussion forum for the talk in question.
-
-* **Normal Flow**. 
-  * Actor selects lecture.
-  * Actor selects a question. 
-  * Actor deletes question - A1 Actor doesn't delete question -
-  * Question is no longer available for everyone to see.
-  * Returns to the lecture questions page.
-
-* **Alternative Flows and Exceptions**. 
-
-   * A1 - Actor doesn't delete question.
-   	  * System asks if user really wants leave without removing the question.
-	  * If selected yes, cases continues at Returns to the lecture questions page.
-	  * If selected no, cases continues at Actor selects a question. 
-	 
-	 
-	 
 **Consult Feedback**
 
-* **Actor** : Speaker
+* **Actor** : Participant
 
-* **Description** : The speaker can consult the feedback given by participants during his lecture.
+* **Description** : Participants can consult the feedback given by participants during his lecture.
 
 * **Preconditions and Postconditions**. The speaker can read the feedback left by the participants about all the parts of the lecture.
 
@@ -197,9 +173,9 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 **Share Resources**
 
-* **Actor** : Speaker
+* **Actor** : Participant
 
-* **Description** : Speaker can share all the resources used during presentation with participants.
+* **Description** : Participants can share all the resources used during presentation with participants.
 
 * **Preconditions and Postconditions**. The speaker can share material with participants present in his lecture (preconditions); it will be available during and after it (postconditions).
 
@@ -237,8 +213,34 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	  * If selected yes, cases continues at Actor selects a file.
 	  * If selected no, cases continues at Returns to the lectures main page.
 
+ 
+	 
+	 
+**Delete Questions**
 
+* **Actor** : Speaker
 
+* **Description** : The speaker can delete questions raised by participants during his lecture.
+
+* **Preconditions and Postconditions**. The speaker may remove any questions posed in his lecture (preconditions); any of these actions will be reflected in the discussion forum for the talk in question.
+
+* **Normal Flow**. 
+  * Actor selects lecture.
+  * Actor selects a question. 
+  * Actor deletes question - A1 Actor doesn't delete question -
+  * Question is no longer available for everyone to see.
+  * Returns to the lecture questions page.
+
+* **Alternative Flows and Exceptions**. 
+
+   * A1 - Actor doesn't delete question.
+   	  * System asks if user really wants leave without removing the question.
+	  * If selected yes, cases continues at Returns to the lecture questions page.
+	  * If selected no, cases continues at Actor selects a question. 
+	  
+	  
+	  
+	  
 ### User stories
 This section contains the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
 
@@ -249,7 +251,7 @@ This section contains the requirements of the product described as **user storie
 
 To better understand the context of the software system, it is very useful to have a simple UML class diagram with all the key concepts (names, attributes) and relationships involved of the problem domain addressed by your module.
 
-![Live Feedback](https://github.com/softeng-feup/open-cx-aacm/blob/master/LiveFeedback%20UML.png)
+![Live Feedback](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/LiveFeedback%20UML.png)
 
 ---
 
@@ -268,13 +270,13 @@ The purpose of this subsection is to document the high-level logical structure o
 As the many levels of logic viewing requires, these are some of the high-level structures of LiveFeedback´s code. This way we can prevent and assure key features of our service.
 
 Log In Case Diagram shows how the app handles misused loggin information or non-existent loggin information.  
-![LogInCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/LogIn%20Case%20Diagram.png)
+![LogInCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/LogIn%20Case%20Diagram.png)
 
 Ask Questions Case Diagram makes sure that the user inputs the question acoording to our restriction os number of characters.  
-![AskQuestionCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/AskQuestion%20Case%20Diagram.png)
+![AskQuestionCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/AskQuestion%20Case%20Diagram.png)
 
 Get Resources Case Diagram checks if the Resource number requested exists and if so presents it to the user.  
-![GetResourceCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/GetResources%20Diagram.png)
+![GetResourceCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/GetResources%20Diagram.png)
 
 It can be beneficial to present the system both in a horizontal or vertical decomposition:
 * horizontal decomposition may define layers and implementation concepts, such as the user interface, business logic and concepts; 
