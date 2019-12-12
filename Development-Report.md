@@ -58,7 +58,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### Use case diagram 
 
-![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/Use%20Case%20Diagram.png) 
+![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/Use%20Case%20Diagram.png) 
 
 
 **Give Feedback**
@@ -249,7 +249,7 @@ This section contains the requirements of the product described as **user storie
 
 To better understand the context of the software system, it is very useful to have a simple UML class diagram with all the key concepts (names, attributes) and relationships involved of the problem domain addressed by your module.
 
-![Live Feedback](https://github.com/softeng-feup/open-cx-aacm/blob/master/LiveFeedback%20UML.png)
+![Live Feedback](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/LiveFeedback%20UML.png)
 
 ---
 
@@ -268,13 +268,13 @@ The purpose of this subsection is to document the high-level logical structure o
 As the many levels of logic viewing requires, these are some of the high-level structures of LiveFeedback´s code. This way we can prevent and assure key features of our service.
 
 Log In Case Diagram shows how the app handles misused loggin information or non-existent loggin information.  
-![LogInCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/LogIn%20Case%20Diagram.png)
+![LogInCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/LogIn%20Case%20Diagram.png)
 
 Ask Questions Case Diagram makes sure that the user inputs the question acoording to our restriction os number of characters.  
-![AskQuestionCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/AskQuestion%20Case%20Diagram.png)
+![AskQuestionCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/AskQuestion%20Case%20Diagram.png)
 
 Get Resources Case Diagram checks if the Resource number requested exists and if so presents it to the user.  
-![GetResourceCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/GetResources%20Diagram.png)
+![GetResourceCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/GetResources%20Diagram.png)
 
 It can be beneficial to present the system both in a horizontal or vertical decomposition:
 * horizontal decomposition may define layers and implementation concepts, such as the user interface, business logic and concepts; 
