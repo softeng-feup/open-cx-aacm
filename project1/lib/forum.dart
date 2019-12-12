@@ -108,9 +108,9 @@ class ForumState extends State<Forum> {
               ]),
               talkResources,
               if(now.minute>=1)
-              talkFeedback,
+              talkFeedback(),
               if(now.minute>=1)
-              talkForum,
+              talkForum(),
               SizedBox(
                 height: 10,
               ),
@@ -137,78 +137,49 @@ class ForumState extends State<Forum> {
                       fontSize: 18,
                       color: Color(0xFF5A6779))))));
 
-  /*final askQuestion = SizedBox(
-      width: 350,
-      height: 60,
-      child: RaisedButton(
-          color: Colors.white,
-          onPressed: () {
-            // Navigate back to first route when tapped.
-            Navigator.push(context1 , MaterialPageRoute(builder: (context) => Profile(info,lectureName)));
-          },
-          child: SizedBox(
-              width: 350,
-              child: Text('Ask a question',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Color(0xFF5A6779))))));*/
-
-  /*final talkFeedback = SizedBox(
-      width: 350,
-      height: 60,
-      child: RaisedButton(
-          color: Colors.white,
-          onPressed: () {
-            Navigator.push(
-            context1,
-            MaterialPageRoute(builder: (context) => SecondRoute())
-            );
-          },
-          child: SizedBox(
-              width: 350,
-              child: Text('Feedback',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Color(0xFF5A6779))))));*/
 
 
-  final talkFeedback = SizedBox(
-      width: 350,
-      height: 60,
-      child: RaisedButton(
-          color: Colors.white,
-          onPressed: () {
-            Navigator.push(
-                context1,
-                MaterialPageRoute(builder: (context) => Feedbacks())
-            );
-          },
-          child: SizedBox(
-              width: 350,
-              child: Text('Feedback',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Color(0xFF5A6779))))));
 
-  final talkForum = SizedBox(
-      width: 350,
-      height: 60,
-      child: RaisedButton(
-          color: Colors.white,
-          onPressed: () {
-            Navigator.push(
-                context1,
-                MaterialPageRoute(builder: (context) => Questions())
-            );
-          },
-          child: SizedBox(
-              width: 350,
-              child: Text('Question Forum',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Color(0xFF5A6779))))));
+  Widget talkFeedback() {
+    return SizedBox(
+        width: 350,
+        height: 60,
+        child: RaisedButton(
+            color: Colors.white,
+            onPressed: () {
+              Navigator.push(
+                  context1,
+                  MaterialPageRoute(builder: (context) => Feedbacks())
+              );
+            },
+            child: SizedBox(
+                width: 350,
+                child: Text('Feedback',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Color(0xFF5A6779))))));
+  }
+
+  Widget talkForum() {
+    return SizedBox(
+        width: 350,
+        height: 60,
+        child: RaisedButton(
+            color: Colors.white,
+            onPressed: () {
+              Navigator.push(
+                  context1,
+                  MaterialPageRoute(
+                      builder: (context) => Questions(0,info, lectureName, true))
+              );
+            },
+            child: SizedBox(
+                width: 350,
+                child: Text('Question Forum',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Color(0xFF5A6779))))));
+  }
 }
