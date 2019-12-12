@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'feedback.dart';
 import 'profile.dart';
 import 'dart:async';
 import 'Questions.dart';
 import 'resources.dart';
+import 'talk_feedback.dart';
+
 
 class Forum extends StatefulWidget{
   @override
@@ -147,7 +148,7 @@ class ForumState extends State<Forum> {
           onPressed: () {
             Navigator.push(
                 context1,
-                MaterialPageRoute(builder: (context) => SecondRoute())
+                MaterialPageRoute(builder: (context) => Feedbacks())
             );
           },
           child: SizedBox(
