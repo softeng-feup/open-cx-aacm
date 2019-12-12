@@ -12,7 +12,7 @@ class Questions extends StatefulWidget{
 
 class QuestionsState extends State<Questions> {
   static BuildContext context1;
-  List<Question> questions=[];
+  List<Question> questions= [];
 
   void _incrementCounter() async{
     if (this.mounted)
