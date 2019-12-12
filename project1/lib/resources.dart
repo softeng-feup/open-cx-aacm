@@ -1,15 +1,23 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:project1/objects.dart';
+import 'info.dart';
+
 
 class Upload extends StatefulWidget {
+  //final AllInfo info;
+  //Upload(this.info);
+
   @override
-  _Upload createState() => new _Upload();
+  _Upload createState() => new _Upload(/*info*/);
 }
 
 class _Upload extends State<Upload> {
+
+  //_Upload(this.info);
+  //AllInfo info;
+
   String fileName;
   String _path;
   Map<String, String> _paths;
@@ -35,12 +43,15 @@ class _Upload extends State<Upload> {
           _path = null;
           _paths = await FilePicker.getMultiFilePath(
               type: fileType, fileExtension: _extension);
+          //info.resources.add(FilePicker.getMultiFile() as Resource);
         }
         //Single file 
         else {
           _paths = null;
           _path = await FilePicker.getFilePath(
               type: fileType, fileExtension: _extension);
+            Resource r = FilePicker.getFile() as Resource;
+            //info.resources.add(r);
         }
       } on PlatformException catch (e) {
         print("Unsupported operation" + e.toString());
@@ -62,16 +73,17 @@ class _Upload extends State<Upload> {
         appBar: new AppBar(
           title: const Text('Live Feedback'),
         ),
-        body: new Center(
+        body: 
+          new Center(
             child: new Padding(
           padding: const EdgeInsets.only(left: 10.0, right: 10.0),
           child: new SingleChildScrollView(
-            child: new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: new DropdownButton(
+              child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: new DropdownButton(
                       hint: new Text('Type of resource'),
                       value: fileType,
                       items: <DropdownMenuItem>[
@@ -139,6 +151,11 @@ class _Upload extends State<Upload> {
                 new Padding(
                   padding: const EdgeInsets.only(top: 50.0, bottom: 20.0),
                   child: new RaisedButton(
+                      shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                          color: Colors.lightBlue, width: 2.0),
+                          borderRadius: BorderRadius.circular(20),
+                      ),
                     onPressed: () => _openFileExplorer(),
                     child: new Text("Choose file"),
                   ),

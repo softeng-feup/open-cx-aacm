@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project1/home_page.dart';
+import 'package:file_picker/file_picker.dart';
+
 
 class Lecture {
 
@@ -91,18 +93,22 @@ class Answer{
 }
 
 class Resource{
-  int id;
-  String text;
-  String file;
+  String fileName;
+  String path;
+  String fileExtension;
+  FileType fileType;
 
-  Resource(this.id,this.text,this.file);
+  Resource(this.fileName,this.path,this.fileExtension,this.fileType);
 
-  int getId(){return id;}
-  String getText(){return text;}
-  String getFile(){return file;}
+  String getFileName(){return fileName;}
+  String getPath(){return path;}
+  String getFileExtension(){return fileExtension;}
+  FileType getFileType(){return fileType;}
 
-  void setText(String txt){this.text = txt;}
-  void setFile(String file){this.file = file;}
+  void setFileName(String name){this.fileName = name;}
+  void setPath(String path){this.path = path;}
+  void setFileExtension(String fileExt){this.fileExtension=fileExt;}
+  void setFileType(FileType type){this.fileType=type;}
 }
 
 class User {
