@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'profile.dart';
 import 'dart:async';
 import 'info.dart';
+import 'objects.dart';
 import 'Questions.dart';
 import 'resources.dart';
 import 'talk_feedback.dart';
@@ -12,10 +13,11 @@ class Forum extends StatefulWidget{
  
   final AllInfo info;
   String lectureName;
-  Forum(this.info, this.lectureName);
+  User currentUser;
+  Forum(this.info, this.lectureName, this.currentUser);
 
   @override
-  ForumState  createState() => new ForumState(info, lectureName);
+  ForumState  createState() => new ForumState(info, lectureName, currentUser);
 }
 
 class ForumState extends State<Forum> {
@@ -24,8 +26,10 @@ class ForumState extends State<Forum> {
   DateTime now;
   AllInfo info;
   String lectureName;
+  User currentUser;
 
-  ForumState(this.info, this.lectureName);
+
+  ForumState(this.info, this.lectureName, this.currentUser);
 
   void _getTime() {
     if (this.mounted)
@@ -108,7 +112,24 @@ class ForumState extends State<Forum> {
               ]),
               talkResources,
               if(now.minute>=1)
-              talkFeedback,
+               SizedBox(
+                  width: 350,
+                  height: 60,
+                  child: RaisedButton(
+                      color: Colors.white,
+                      onPressed: () {
+                        Navigator.push(
+                            context1,
+                            MaterialPageRoute(builder: (context) => Feedbacks(info,lectureName, currentUser))
+                        );
+                      },
+                      child: SizedBox(
+                          width: 350,
+                          child: Text('Feedback',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Color(0xFF5A6779)))))),
               if(now.minute>=1)
               talkForum,
               SizedBox(
@@ -173,25 +194,6 @@ class ForumState extends State<Forum> {
                       fontSize: 18,
                       color: Color(0xFF5A6779))))));*/
 
-
-  final talkFeedback = SizedBox(
-      width: 350,
-      height: 60,
-      child: RaisedButton(
-          color: Colors.white,
-          onPressed: () {
-            Navigator.push(
-                context1,
-                MaterialPageRoute(builder: (context) => Feedbacks())
-            );
-          },
-          child: SizedBox(
-              width: 350,
-              child: Text('Feedback',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Color(0xFF5A6779))))));
 
   final talkForum = SizedBox(
       width: 350,

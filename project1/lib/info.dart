@@ -12,8 +12,8 @@ class AllInfo {
     this.allLectures = parser.loadAllLectures();
     
     //sort lectures
-    Comparator<Lecture> priceComparator = (a, b) => a.time.compareTo(b.time);
-    this.allLectures.sort(priceComparator);
+    Comparator<Lecture> lectureComparator = (a, b) => a.time.compareTo(b.time);
+    this.allLectures.sort(lectureComparator);
 
     this.people = parser.loadAllPeople();
     this.resources = parser.loadAllResources();
@@ -29,18 +29,23 @@ class AllInfo {
   void addPerson(User person){people.add(person);}
   void addResource(Resource resource){resources.add(resource);}
 
+  void addFeedbackToLecture(FeedBack fedd, String lectname){
+    int index = allLectures.indexWhere((note) => note.getName()==lectname);       
+    allLectures[index].addFeedback(fedd);
+  }
+
   Lecture getLecture(String name){
     var lecture = allLectures.firstWhere((lect) => lect.getName() == name, orElse: () => null);
     return lecture;
   }
+  User getUser(String mail){
+    var person = people.firstWhere((lect) => lect.getName() == mail, orElse: () => null);
+    return person;
+  }
   String getLectureInfo(String name){
     String info;
     var lecture = allLectures.firstWhere((lect) => lect.getName() == name, orElse: () => null);
-    var hour = lecture.getTime().hour;
-    var minute = lecture.getTime().minute;
-    var room = lecture.getRoom();
-    info = "$hour:$minute  Local: " + room;
-    return info;
+    return lecture.getInfo();
   }
 
 }

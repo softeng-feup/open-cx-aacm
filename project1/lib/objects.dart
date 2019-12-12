@@ -12,7 +12,7 @@ class Lecture {
   List<FeedBack> feedbackForum = [];
   List<Resource> resources = [];
 
-  Lecture(this.name, this.text, this.date,this.time, this.room, this.speaker, );
+  Lecture(this.name, this.text, this.date,this.time, this.room, this.speaker );
 
   String getName() {return name;}
   String getText(){return text;}
@@ -29,30 +29,54 @@ class Lecture {
   void setRoom( String room) {this.room= room;}
   void setTime(DateTime t){this.time= t;}
 
-  void addQuestion(Question q){questionForum.add(q);}
-  void addFeedback(FeedBack f){feedbackForum.add(f);}
+  void addQuestion(Question q){
+    questionForum.add(q);
+    Comparator<Question> qComparator = (a, b) => a.getTime().compareTo(b.getTime());
+    questionForum.sort(qComparator);
+  }
+
+  void addFeedback(FeedBack f){
+    feedbackForum.add(f);
+    Comparator<FeedBack> feedbComparator = (a, b) => a.getTime().compareTo(b.getTime());
+    feedbackForum.sort(feedbComparator);
+  }
   void addResource(Resource r){resources.add(r);}
+
+  String getInfo(){
+    var hour = getTime().hour;
+    var minute = getTime().minute;
+    return "$hour:$minute  Local: " + getRoom();
+  }
 }
 
 class FeedBack {
   int id;
   User user;
   String text;
-  DateTime date;
   DateTime time;
   int stars;
-  FeedBack(this.id,this.user,this.text,this.stars,this.date,this.time);
+  FeedBack(this.id,this.user,this.text,this.stars,this.time);
 
   int getId(){return id;}
   User getUser(){return user;}
   String getText(){return text;}
-  DateTime getDate(){return date;}
   DateTime getTime(){return time;}
+  int getStars(){return stars;}
 
   void setUser(User usr){this.user = usr;}
+  void setStars(int i){this.stars = i;}
   void setText(String text){this.text = text;}
-  void setDate(DateTime d){this.date = d;}
-  void setTime(DateTime t){this.time= t;}
+  void setTime(DateTime d){this.time = d;}
+
+  String getInfo(){
+    var day = getTime().day;
+    var month = getTime().month;
+    var year = getTime().year;
+    var hour = getTime().hour;
+    var minute = getTime().minute;
+    String username= user.getName();
+    return username + " $day/$month/$year $hour:$minute";
+  }
 }
 
 class Question {
@@ -60,25 +84,22 @@ class Question {
   User user;
   String title;
   String description;
-  DateTime date;
   DateTime time;
   Answer answer;
 
-  Question(this.id, this.user, this.description, this.date, this.time);
+  Question(this.id, this.user, this.description, this.time);
 
   int getId(){return id;}
   User getUser(){return user;}
   String getText(){return description;}
-  DateTime getDate(){return date;}
-  Answer getAnswer(){return answer;}
   DateTime getTime(){return time;}
+  Answer getAnswer(){return answer;}
 
   void setPerson(User usr){this.user = usr;}
   void setDescription( String description){this.description = description;}
-  void setDate(DateTime d){this.date = d;}
+  void setTime(DateTime d){this.time = d;}
   void setAnswer(Answer a){this.answer = a;}
   void setName( String title){this.title =  title;}
-  void setTime(DateTime t){this.time= t;}
 
 }
 
@@ -87,18 +108,15 @@ class Answer{
   Speaker speaker;
   String text;
   DateTime date;
-  DateTime time;
 
-  Answer(this.id,this.speaker,this.text,this.date, this.time);
+  Answer(this.id,this.speaker,this.text,this.date);
   int getId(){return id;}
   Speaker getSpeaker(){return speaker;}
   String getText(){return text;}
   DateTime getDate(){return date;}
-  DateTime gettime(){return time;}
   void setSpeaker(Speaker sp){this.speaker = sp;}
   void setText(String text){this.text = text;}
   void setDate(DateTime d){this.date = d;}
-  void setTime(DateTime t){this.time= t;}
 
 }
 
@@ -150,7 +168,6 @@ class User {
 class Speaker extends User{
 
   List<Lecture> lectures = [];
-
   Speaker(int id, String nome, String pass, String email): super(id, nome, pass, email); 
 
   List<Lecture> getLectures(){return lectures;}
@@ -158,12 +175,3 @@ class Speaker extends User{
   void addLecture(Lecture lect){lectures.add(lect);}
 }
 
-
-
-class RateData {
-  int rate;
-  String comment;
-  RateData(rate, comment);
-  int getRate(){return rate;}
-  String getComment(){return comment;}
-}

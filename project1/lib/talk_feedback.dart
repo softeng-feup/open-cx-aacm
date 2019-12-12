@@ -1,26 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:project1/info.dart';
 import 'star_rating.dart';
+import 'info.dart';
+import 'objects.dart';
+
+
 
 class Feedbacks extends StatefulWidget {
+  final AllInfo info;
+  String lectureName;
+  User currentUser;
+  Feedbacks(this.info, this.lectureName, this.currentUser);  
   @override
-  FeedbackState createState() => FeedbackState();
+  FeedbackState createState() => FeedbackState(info, lectureName, currentUser);
 }
 
 class FeedbackState extends State<Feedbacks> {
   static BuildContext context1;
 
-  List<int> rates = [];
-  List<String> comments = [];
+  AllInfo info;
+  String lectureName;
+  User currentUser;
+
+  FeedbackState(this.info, this.lectureName, this.currentUser); 
 
   void _incrementCounter() async {
     if (this.mounted)
       setState(() async {
-        final question = await Navigator.push(FeedbackState.context1,
+        final newFeedback = await Navigator.push(FeedbackState.context1,
             MaterialPageRoute(builder: (context1) => InfoFeedback()));
-
-        rates.add(question.rate);
-        comments.add(question.comment);
+        if(newFeedback != null){
+          //newFeedback.setUser(currentUser);
+          info.addFeedbackToLecture(newFeedback, lectureName);
+        }
       });
   }
 
@@ -32,7 +44,7 @@ class FeedbackState extends State<Feedbacks> {
           title: Text("Feedback"),
         ),
         body: new ListView.builder(
-            itemCount: rates.length,
+            itemCount: info.getLecture(lectureName).getFeedbackForum().length,
             itemBuilder: (context, index) {
               return Container(
                   alignment: Alignment.center,
@@ -41,10 +53,17 @@ class FeedbackState extends State<Feedbacks> {
                     SizedBox(height: 15),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[StarDisplay(value: rates[index])]),
+                        children: <Widget>[StarDisplay(value: info.getLecture(lectureName).getFeedbackForum()[index].getStars())]),
                     SizedBox(height: 10),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Text(comments[index],
+                      Text(info.getLecture(lectureName).getFeedbackForum()[index].getText(),
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(fontSize: 18)),
+                    ]),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:[
+                      Text(info.getLecture(lectureName).getFeedbackForum()[index].getInfo(),
                           textAlign: TextAlign.justify,
                           style: TextStyle(fontSize: 18))
                     ]),
@@ -70,8 +89,8 @@ class InfoFeedback extends StatelessWidget {
   //adicionar palestra
   static final formKey = GlobalKey<FormState>();
 
-  //Question question;
-  static RateData question = new RateData(0, "");
+
+  FeedBack _newFeedback = new FeedBack(null, User(0,"anon", "","") ,"",0,new DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -121,12 +140,16 @@ class InfoFeedback extends StatelessWidget {
                         ],
                       );
                     },
-                    onSaved: (value) => question.rate = value,
+                    onSaved: (value) => {
+                      if (value == null) value = 0,
+                      _newFeedback.setStars(value)},
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                         labelText: 'Leave a comment (optional): '),
-                    onSaved: (String val) => question.comment = val,
+                    onSaved: (String val) => {
+                      if (val == null || val == "") val = "--",
+                      _newFeedback.setText(val),}
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -136,7 +159,7 @@ class InfoFeedback extends StatelessWidget {
                         child: RaisedButton(
                           onPressed: () {
                             _submit();
-                            Navigator.pop(context, question);
+                            Navigator.pop(context, _newFeedback);
                           },
                           child: Text('Submit'),
                         ),
@@ -155,14 +178,3 @@ class InfoFeedback extends StatelessWidget {
   }
 }
 
-class RateData {
-  int rate;
-  String comment;
-
-  RateData(rate, comment);
-
-  int getRate(){return rate;}
-
-  String getComment(){return comment;}
-
-}

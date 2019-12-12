@@ -92,7 +92,7 @@ class InfoQuestion extends StatelessWidget { //adicionar palestra
                         decoration: InputDecoration(
                             labelText: 'Nome da palestra: '
                         ),
-                        onSaved: (String val) => (question = new Question(0,null, val,null,null)),
+                        onSaved: (String val) => (question = new Question(null,null, val,null)),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,

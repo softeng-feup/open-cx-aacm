@@ -1,30 +1,34 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'forum.dart';
-import 'objects.dart';
 import 'info.dart';
+import 'objects.dart';
+
 import 'package:table_calendar/table_calendar.dart';
-import 'package:intl/date_symbol_data_local.dart';
 
 
 class HomePage extends StatefulWidget {
 
-  HomePage(this.title,this.info);
+  HomePage(this.title, this.info, this.currentUser);
 
   static String tag = 'home-page';
   final String title;
   final AllInfo info;
+  final User currentUser;
 
   @override
-  MyHomePage createState() => MyHomePage(info);
+  MyHomePage createState() => MyHomePage(info,currentUser);
 }
 
 
 class MyHomePage extends State<HomePage>  with TickerProviderStateMixin  {
   
-  MyHomePage(this.info);
+  MyHomePage(this.info, this.currentUser);
 
   AllInfo info;
+  User currentUser;
+
 
   Map<DateTime, List> _events;
   List _selectedEvents;
@@ -206,7 +210,7 @@ class MyHomePage extends State<HomePage>  with TickerProviderStateMixin  {
                   subtitle: Text(info.getLectureInfo(event)),
                   onTap: () =>{
                     print('$event tapped!'),
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Forum(info,event)))
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Forum(info,event,currentUser)))
                   } 
                 ),
               ))
