@@ -67,9 +67,9 @@ class QuestionsState extends State<Questions> {
           children:  <Widget>[
             if((!isreply) && questions.isNotEmpty)
               new Container(
-                  width: 400,
+                  width: 425,
                   height: 100.0,
-                  decoration: new BoxDecoration(color:  Colors.lightBlueAccent),
+                  decoration: new BoxDecoration(border: Border.all(width: 5.0,color: Colors.lightBlueAccent),color:  Colors.white30),
                   child: Center(
                       child : Text(questions[id].getText(),
                       style: TextStyle(
@@ -88,11 +88,6 @@ class QuestionsState extends State<Questions> {
                 child: Padding(
                   padding:  EdgeInsets.all(8.0),
                   child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                          color: Colors.lightBlue, width: 5.0),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
                     onPressed: () {
                       if(isreply)
                       Navigator.push(context,MaterialPageRoute(builder: (context1) => Questions(index,info , lecture , false)));},
