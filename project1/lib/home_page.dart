@@ -128,7 +128,7 @@ class MyHomePage extends State<HomePage>  with TickerProviderStateMixin  {
             child: Container(
               margin: const EdgeInsets.all(4.0),
               padding: const EdgeInsets.only(top: 5.0, left: 6.0),
-              color: Colors.blue[300],
+              color: Color(0xFF3EA6F2),
               width: 100,
               height: 100,
               child: Text(
@@ -142,7 +142,7 @@ class MyHomePage extends State<HomePage>  with TickerProviderStateMixin  {
           return Container(
             margin: const EdgeInsets.all(4.0),
             padding: const EdgeInsets.only(top: 5.0, left: 6.0),
-            color: Colors.blue[100],
+            color: Color(0xFF3EA6F2),
             width: 100,
             height: 100,
             child: Text(
@@ -209,8 +209,8 @@ class MyHomePage extends State<HomePage>  with TickerProviderStateMixin  {
                   title: Text(event.toString()),
                   subtitle: Text(info.getLectureInfo(event)),
                   onTap: () =>{
-                    print('$event tapped!'),
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Forum(info,event,currentUser)))
+                    print(info.getLectureInfo(event)),
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Forum(info,event, info.getLecture(event).getText(), currentUser)))
                   } 
                 ),
               ))

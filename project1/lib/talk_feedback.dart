@@ -5,12 +5,13 @@ import 'info.dart';
 import 'objects.dart';
 
 
-
 class Feedbacks extends StatefulWidget {
   final AllInfo info;
   String lectureName;
   User currentUser;
-  Feedbacks(this.info, this.lectureName, this.currentUser);  
+
+  Feedbacks(this.info, this.lectureName, this.currentUser);
+
   @override
   FeedbackState createState() => FeedbackState(info, lectureName, currentUser);
 }
@@ -22,14 +23,14 @@ class FeedbackState extends State<Feedbacks> {
   String lectureName;
   User currentUser;
 
-  FeedbackState(this.info, this.lectureName, this.currentUser); 
+  FeedbackState(this.info, this.lectureName, this.currentUser);
 
   void _incrementCounter() async {
     if (this.mounted)
       setState(() async {
         final newFeedback = await Navigator.push(FeedbackState.context1,
             MaterialPageRoute(builder: (context1) => InfoFeedback()));
-        if(newFeedback != null){
+        if (newFeedback != null) {
           //newFeedback.setUser(currentUser);
           info.addFeedbackToLecture(newFeedback, lectureName);
         }
@@ -44,7 +45,10 @@ class FeedbackState extends State<Feedbacks> {
           title: Text("Feedback"),
         ),
         body: new ListView.builder(
-            itemCount: info.getLecture(lectureName).getFeedbackForum().length,
+            itemCount: info
+                .getLecture(lectureName)
+                .getFeedbackForum()
+                .length,
             itemBuilder: (context, index) {
               return Container(
                   alignment: Alignment.center,
@@ -53,20 +57,26 @@ class FeedbackState extends State<Feedbacks> {
                     SizedBox(height: 15),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[StarDisplay(value: info.getLecture(lectureName).getFeedbackForum()[index].getStars())]),
+                        children: <Widget>[
+                          StarDisplay(value: info.getLecture(lectureName)
+                              .getFeedbackForum()[index].getStars())
+                        ]),
                     SizedBox(height: 10),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Text(info.getLecture(lectureName).getFeedbackForum()[index].getText(),
+                      Text(
+                          info.getLecture(lectureName).getFeedbackForum()[index]
+                              .getText(),
                           textAlign: TextAlign.justify,
                           style: TextStyle(fontSize: 18)),
                     ]),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children:[
-                      Text(info.getLecture(lectureName).getFeedbackForum()[index].getInfo(),
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(fontSize: 18))
-                    ]),
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(info.getLecture(lectureName)
+                              .getFeedbackForum()[index].getInfo(),
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(fontSize: 18))
+                        ]),
                     SizedBox(height: 15)
                   ]));
             }),
@@ -90,7 +100,8 @@ class InfoFeedback extends StatelessWidget {
   static final formKey = GlobalKey<FormState>();
 
 
-  FeedBack _newFeedback = new FeedBack(null, User(0,"anon", "","") ,"",0,new DateTime.now());
+  FeedBack _newFeedback = new FeedBack(
+      null, User(0, "anon", "", ""), "", 0, new DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -101,77 +112,100 @@ class InfoFeedback extends StatelessWidget {
         body: Card(
           child: new SingleChildScrollView(
               child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Form(
-              key: formKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  SizedBox(height: 30),
-                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                    Text('Your feedback',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 46,
-                            color: Color(0xFF5A6779))),
-                  ]),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                padding: EdgeInsets.all(8.0),
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Text('Rate the talk: ',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24,
-                              color: Color(0xFF707070)))
-                    ],
-                  ),
-                  FormField<int>(
-                    initialValue: 0,
-                    autovalidate: true,
-                    builder: (state) {
-                      return Column(
-                        mainAxisSize: MainAxisSize.min,
+                      SizedBox(height: 30),
+                      Row(mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text('Your feedback',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 46,
+                                    color: Color(0xFF5A6779))),
+                          ]),
+                      SizedBox(height: 30),
+                      rateTitle,
+                      FormField<int>(
+                        initialValue: 0,
+                        autovalidate: true,
+                        builder: (state) {
+                          return Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              StarRating(
+                                onChanged: state.didChange,
+                                value: state.value,
+                              ),
+                            ],
+                          );
+                        },
+                        onSaved: (value) =>
+                        {
+                          if (value == null) value = 0,
+                          _newFeedback.setStars(value)},
+                      ),
+                      leaveAComment,
+                      TextFormField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),),
+                        onSaved: (String val) =>
+                        {
+                          if (val == null || val == "") val = "--",
+                          _newFeedback.setText(val),},
+                        maxLength: 300,
+                        maxLines: 6,
+                        style: new TextStyle(
+                            fontSize: 20.0, color: Colors.black),
+
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
-                          StarRating(
-                            onChanged: state.didChange,
-                            value: state.value,
-                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: RaisedButton(
+                              onPressed: () {
+                                _submit();
+                                Navigator.pop(context, _newFeedback);
+                              },
+                              child: Text('Submit'),
+                            ),
+                          )
                         ],
-                      );
-                    },
-                    onSaved: (value) => {
-                      if (value == null) value = 0,
-                      _newFeedback.setStars(value)},
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                        labelText: 'Leave a comment (optional): '),
-                    onSaved: (String val) => {
-                      if (val == null || val == "") val = "--",
-                      _newFeedback.setText(val),}
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: RaisedButton(
-                          onPressed: () {
-                            _submit();
-                            Navigator.pop(context, _newFeedback);
-                          },
-                          child: Text('Submit'),
-                        ),
                       )
                     ],
-                  )
-                ],
-              ),
-            ),
-          )),
+                  ),
+                ),
+              )),
         ));
   }
+
+  final rateTitle = Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: <Widget>[
+      Text('Rate the talk: ',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+              color: Color(0xFF707070)))
+    ],
+  );
+
+  final leaveAComment = Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(
+          child: Text('Leave a comment (optional):',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  color: Color(0xFF707070))),
+        )
+      ]);
 
   void _submit() {
     formKey.currentState.save();

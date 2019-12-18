@@ -67,7 +67,7 @@ class QuestionsState extends State<Questions> {
               new Container(
                   width: 425,
                   height: 100.0,
-                  decoration: new BoxDecoration(border: Border.all(width: 5.0,color: Colors.lightBlueAccent),color:  Colors.white30),
+                  decoration: new BoxDecoration(border: Border.all(width: 5.0,color: Color(0xFF3EA6F2)),color:  Colors.white30),
                   child: Center(
                       child : Text(info.getLecture(lecture).getQuestionForum()[id].getText(),
                       style: TextStyle(
@@ -98,9 +98,17 @@ class QuestionsState extends State<Questions> {
     )
       ]
       ),
-      floatingActionButton:FloatingActionButton(
+      floatingActionButton: RaisedButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        color: Color(0xFF3EA6F2),
         onPressed: _incrementCounter,
-        child: Icon(Icons.add),
+        child: Text('Ask a question',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.white)),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
@@ -137,7 +145,7 @@ class InfoQuestion extends StatelessWidget { //adicionar palestra
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text('Adicionar Questão'),
+          title: new Text('Ask question'),
         ),
         body: Card(
           child: new SingleChildScrollView(
@@ -149,7 +157,7 @@ class InfoQuestion extends StatelessWidget { //adicionar palestra
                     children: <Widget>[
                       TextFormField(
                         decoration: InputDecoration(
-                            labelText: 'Insira a sua questão...'
+                            labelText: 'Add your question here...'
                         ),
                         onSaved: (String val) => (value = val),
                       ),
