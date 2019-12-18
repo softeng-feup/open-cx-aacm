@@ -36,11 +36,11 @@ class Parser{
 
     Answer a1 = new Answer(0, people[5], "Não consigo ajudar pois ainda não foi investigado", t2);
     Question q1 = new Question(0, people[1], "porque é que isso acontece?", t1);
-    q1.setAnswer(a1);
+    q1.addAnswer(a1);
 
     Answer a2 = new Answer(1, people[6], "Veja o meu perfil para mais informação", t2);
     Question q2 = new Question(1, people[0], "irá voltar a dar esta palestra?", t2);
-    q2.setAnswer(a2);
+    q2.addAnswer(a2);
 
     Lecture l1 = new Lecture("Comunicação", "Como comunicar", d1, t1,"B001", people[5]);
     l1.addFeedback(f1); l1.addFeedback(f2);

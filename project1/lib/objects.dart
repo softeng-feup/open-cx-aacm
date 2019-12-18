@@ -85,7 +85,7 @@ class Question {
   String title;
   String description;
   DateTime time;
-  Answer answer;
+  List<Answer> answers=[];
 
   Question(this.id, this.user, this.description, this.time);
 
@@ -93,13 +93,13 @@ class Question {
   User getUser(){return user;}
   String getText(){return description;}
   DateTime getTime(){return time;}
-  Answer getAnswer(){return answer;}
+  List<Answer> getAnswers(){return answers;}
 
   void setPerson(User usr){this.user = usr;}
   void setDescription( String description){this.description = description;}
   void setTime(DateTime d){this.time = d;}
-  void setAnswer(Answer a){this.answer = a;}
   void setName( String title){this.title =  title;}
+  void addAnswer( Answer a){answers.add(a);}
 
 }
 

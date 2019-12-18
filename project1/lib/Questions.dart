@@ -18,26 +18,23 @@ class Questions extends StatefulWidget{
 
 class QuestionsState extends State<Questions> {
   static BuildContext context1;
-  List<Question> questions= [];
   AllInfo info;
   String lecture;
   var isreply;
   var id;
+  var list;
 
   QuestionsState(this.id , this.info , this.lecture , this.isreply){
     if(isreply) {
       Lecture temp = info.getLecture(lecture);
-      questions = temp.getQuestionForum();
+      List<Question> questions = temp.getQuestionForum();
+      list = questions;
     }
     else{
       Lecture temp = info.getLecture(lecture);
-      List<Question> list = temp.getQuestionForum();
-      for(var i=0 ; i<list.length ; i++)
-        {
-          Answer answer = list[i].getAnswer();
-          Question tempQuestion = new Question(answer.getId(),answer.getSpeaker(),answer.getText(),answer.getDate());
-          questions.add(tempQuestion);
-        }
+      List<Question> listTemp = temp.getQuestionForum();
+      Question question = listTemp[id];
+      list = question.getAnswers();
     }
   }
   void _incrementCounter() async{
@@ -45,10 +42,10 @@ class QuestionsState extends State<Questions> {
       setState(() async {
         final question = await Navigator.push(
             QuestionsState.context1,
-            MaterialPageRoute(builder: (context1) => InfoQuestion())
+            MaterialPageRoute(builder: (context1) => InfoQuestion(isreply))
         );
         if(question!=null)
-          questions.add(question);
+          list.add(question);
 
       });
   }
@@ -72,7 +69,7 @@ class QuestionsState extends State<Questions> {
                   height: 100.0,
                   decoration: new BoxDecoration(border: Border.all(width: 5.0,color: Colors.lightBlueAccent),color:  Colors.white30),
                   child: Center(
-                      child : Text(questions[id].getText(),
+                      child : Text(info.getLecture(lecture).getQuestionForum()[id].getText(),
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -81,23 +78,20 @@ class QuestionsState extends State<Questions> {
                   )
               ),
     new Expanded(child: new ListView.builder(
-          itemCount: questions.length,
+          itemCount: list.length,
           itemBuilder: (context, index) {
             return SizedBox(
                 width: 100,
                 height: 70,
-                child: Padding(
-                  padding:  EdgeInsets.all(8.0),
                   child: RaisedButton(
                     onPressed: () {
                       if(isreply)
                       Navigator.push(context,MaterialPageRoute(builder: (context1) => Questions(index,info , lecture , false)));},
                     padding: EdgeInsets.all(12),
-                    color: Colors.white,
-                    child: Text(questions[index].getText()
+                    color: Colors.grey[((index % 2) + 1) * 100],
+                    child: Text(list[index].getText()
                     ),
                   ),
-                )
             );
           }
       ),
@@ -129,8 +123,15 @@ class QuestionsState extends State<Questions> {
 }
 
 class InfoQuestion extends StatelessWidget { //adicionar palestra
+  var isreply;
   static final formKey = GlobalKey<FormState>();
   Question question;
+  Answer answer;
+  var value;
+  var finalDecision;
+
+
+  InfoQuestion(this.isreply);
 
   @override
   Widget build(BuildContext context) {
@@ -150,7 +151,7 @@ class InfoQuestion extends StatelessWidget { //adicionar palestra
                         decoration: InputDecoration(
                             labelText: 'Insira a sua questão...'
                         ),
-                        onSaved: (String val) => (question = new Question(null,null, val,null)),
+                        onSaved: (String val) => (value = val),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -159,7 +160,7 @@ class InfoQuestion extends StatelessWidget { //adicionar palestra
                             padding: const EdgeInsets.all(8.0),
                             child: RaisedButton(
                               onPressed:(){ _submit();
-                              Navigator.pop(context , question);},
+                              Navigator.pop(context , finalDecision);},
                               child: Text('Submit'),
                             ),
                           )
@@ -172,6 +173,16 @@ class InfoQuestion extends StatelessWidget { //adicionar palestra
         ));
   }
   void _submit(){
+    if(value != null)
+    if(!isreply) {
+      answer = new Answer(0, null , value, null);
+      finalDecision = answer;
+      print("lajfnloiuahfiuhuaeliqwelijhaliweuhliwenfliuhWELIUFBLIEUHFLIWEHBFLIUEWHFOIQWNELEIFNLEINFLIAFLIUHAWFILUHluhliuhfbilubfliubwfiuhw");
+    }
+    else {
+      question = new Question(0,null,value,null);
+    }
+
     formKey.currentState.save();
   }
 
