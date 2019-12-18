@@ -269,18 +269,10 @@ Feedback page allows participants to add a new topic and every user to consult a
 The purpose of this subsection is to document the high-level logical structure of the code, using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
 As the many levels of logic viewing requires, these are some of the high-level structures of LiveFeedback´s code. This way we can prevent and assure key features of our service.
 
-Log In Case Diagram shows how the app handles misused loggin information or non-existent loggin information.  
-![LogInCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/LogIn%20Case%20Diagram.png)
+As shown below, our key features include the client application, the web page and the beacon all connected to the database to assure our service's good running.  
 
-Ask Questions Case Diagram makes sure that the user inputs the question acoording to our restriction os number of characters.  
-![AskQuestionCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/AskQuestion%20Case%20Diagram.png)
+![UMLComponentDiagram](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/UMLComponentDiagram%20(2).png)
 
-Get Resources Case Diagram checks if the Resource number requested exists and if so presents it to the user.  
-![GetResourceCase](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/GetResources%20Diagram.png)
-
-It can be beneficial to present the system both in a horizontal or vertical decomposition:
-* horizontal decomposition may define layers and implementation concepts, such as the user interface, business logic and concepts; 
-* vertical decomposition can define a hierarchy of subsystems that cover all layers of implementation.
 
 ### Physical architecture
 The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.
