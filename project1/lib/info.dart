@@ -6,6 +6,7 @@ class AllInfo {
   List<Lecture> allLectures = [];
   List<User> people =[];
   List<Resource> resources=[];
+  User currentUser;
   
   AllInfo(){
     Parser parser = new Parser();
@@ -39,7 +40,7 @@ class AllInfo {
     return lecture;
   }
   User getUser(String mail){
-    var person = people.firstWhere((lect) => lect.getName() == mail, orElse: () => null);
+    var person = people.firstWhere((lect) => lect.getEmail() == mail, orElse: () => null);
     return person;
   }
   String getLectureInfo(String name){

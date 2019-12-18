@@ -1,27 +1,25 @@
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'home_page.dart';
-import 'info.dart';
 import 'objects.dart';
-
-import 'package:intl/date_symbol_data_local.dart';
-
+import 'info.dart';
 
 void main() {
   initializeDateFormatting().then((_) => runApp(MyApp()));
 }
+
 class MyApp extends StatelessWidget {
   
   static AllInfo info;
-  static User currentUser;
 
   MyApp(){
     info = new AllInfo();
   }
 
   final routes = <String, WidgetBuilder>{
-    LoginPage.tag: (context) => LoginPage(info, currentUser),
-    HomePage.tag: (context) => HomePage( 'Live Feedback', info, currentUser),
+    LoginPage.tag: (context) => LoginPage(info),
+    HomePage.tag: (context) => HomePage( 'Live Feedback', info)
   };
   // This widget is the root of your application.
   @override
@@ -43,7 +41,7 @@ class MyApp extends StatelessWidget {
         title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
         body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
       )),
-      home: LoginPage(info, currentUser),
+      home: LoginPage(info),
       routes : routes,
     );
   }
