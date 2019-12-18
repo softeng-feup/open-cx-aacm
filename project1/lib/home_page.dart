@@ -10,26 +10,22 @@ import 'package:table_calendar/table_calendar.dart';
 
 class HomePage extends StatefulWidget {
 
-  HomePage(this.title, this.info, this.currentUser);
+  HomePage(this.title, this.info) {
+    print(this.info.currentUser.getName());
+  }
 
   static String tag = 'home-page';
   final String title;
   final AllInfo info;
-  final User currentUser;
 
   @override
-  MyHomePage createState() => MyHomePage(info,currentUser);
+  MyHomePage createState() => MyHomePage(info);
 }
 
 
 class MyHomePage extends State<HomePage>  with TickerProviderStateMixin  {
-  
-  MyHomePage(this.info, this.currentUser);
-
+  MyHomePage(this.info);
   AllInfo info;
-  User currentUser;
-
-
   Map<DateTime, List> _events;
   List _selectedEvents;
   AnimationController _animationController;
@@ -75,6 +71,7 @@ class MyHomePage extends State<HomePage>  with TickerProviderStateMixin  {
     setState(() {
       _selectedEvents = events;
     });
+
   }
 
   void _onVisibleDaysChanged(DateTime first, DateTime last, CalendarFormat format) {
@@ -209,9 +206,8 @@ class MyHomePage extends State<HomePage>  with TickerProviderStateMixin  {
                   title: Text(event.toString()),
                   subtitle: Text(info.getLectureInfo(event)),
                   onTap: () =>{
-                    print(info.getLectureInfo(event)),
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Forum(info,event, info.getLecture(event).getText(), currentUser)))
-                  } 
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Forum(info,event, info.getLecture(event).getText())))
+                  }
                 ),
               ))
           .toList(),

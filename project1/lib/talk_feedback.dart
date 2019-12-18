@@ -8,12 +8,11 @@ import 'objects.dart';
 class Feedbacks extends StatefulWidget {
   final AllInfo info;
   String lectureName;
-  User currentUser;
 
-  Feedbacks(this.info, this.lectureName, this.currentUser);
+  Feedbacks(this.info, this.lectureName);
 
   @override
-  FeedbackState createState() => FeedbackState(info, lectureName, currentUser);
+  FeedbackState createState() => FeedbackState(info, lectureName);
 }
 
 class FeedbackState extends State<Feedbacks> {
@@ -21,17 +20,15 @@ class FeedbackState extends State<Feedbacks> {
 
   AllInfo info;
   String lectureName;
-  User currentUser;
 
-  FeedbackState(this.info, this.lectureName, this.currentUser);
+  FeedbackState(this.info, this.lectureName);
 
   void _incrementCounter() async {
     if (this.mounted)
       setState(() async {
         final newFeedback = await Navigator.push(FeedbackState.context1,
-            MaterialPageRoute(builder: (context1) => InfoFeedback()));
+            MaterialPageRoute(builder: (context1) => InfoFeedback(info)));
         if (newFeedback != null) {
-          //newFeedback.setUser(currentUser);
           info.addFeedbackToLecture(newFeedback, lectureName);
         }
       });
@@ -98,10 +95,12 @@ class FeedbackState extends State<Feedbacks> {
 class InfoFeedback extends StatelessWidget {
   //adicionar palestra
   static final formKey = GlobalKey<FormState>();
+ AllInfo info;
 
+  InfoFeedback(this.info);
 
   FeedBack _newFeedback = new FeedBack(
-      null, User(0, "anon", "", ""), "", 0, new DateTime.now());
+      null, User(0, "", "", ""), "", 0, new DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +145,7 @@ class InfoFeedback extends StatelessWidget {
                         onSaved: (value) =>
                         {
                           if (value == null) value = 0,
-                          _newFeedback.setStars(value)},
+                          _newFeedback.setStars(value),},
                       ),
                       leaveAComment,
                       TextFormField(
@@ -155,7 +154,8 @@ class InfoFeedback extends StatelessWidget {
                         onSaved: (String val) =>
                         {
                           if (val == null || val == "") val = "--",
-                          _newFeedback.setText(val),},
+                          _newFeedback.setText(val),
+                        _newFeedback.setUser(info.currentUser)},
                         maxLength: 300,
                         maxLines: 6,
                         style: new TextStyle(

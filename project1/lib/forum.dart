@@ -9,16 +9,15 @@ import 'talk_resources.dart';
 import 'talk_feedback.dart';
 
 class Forum extends StatefulWidget {
-  final AllInfo info;
-  String lectureName;
-  String lectureDesc;
-  User currentUser;
+   AllInfo info;
+   String lectureName;
+   String lectureDesc;
 
-  Forum(this.info, this.lectureName, this.lectureDesc, this.currentUser);
+  Forum(this.info, this.lectureName, this.lectureDesc);
 
   @override
   ForumState createState() =>
-      new ForumState(info, lectureName, lectureDesc, currentUser);
+      new ForumState(info, lectureName, lectureDesc);
 }
 
 class ForumState extends State<Forum> {
@@ -27,9 +26,8 @@ class ForumState extends State<Forum> {
   AllInfo info;
   String lectureName;
   String lectureDesc;
-  User currentUser;
 
-  ForumState(this.info, this.lectureName, this.lectureDesc, this.currentUser);
+  ForumState(this.info, this.lectureName, this.lectureDesc);
 
   void _getTime() {
     if (this.mounted)
@@ -113,13 +111,22 @@ class ForumState extends State<Forum> {
                                   builder: (context) =>
                                       Profile(info, lectureName)));
                         },
-                        child: Text(
-                            info.getLecture(lectureName).getSpeaker().getName(),
+                        child: Column(children:
+                        [Text(
+                            'Speaker',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                                color: Color(0xFF5A6779),
-                                backgroundColor: Color(0xFFFAFAFA)))),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54,
+                            )),
+                          Text(
+                              info.getLecture(lectureName).getSpeaker().getName(),
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color(0xFF7F8C8D),
+                                  )),
+                          ])),
+
                   ],
                 )
               ]),
@@ -135,7 +142,8 @@ class ForumState extends State<Forum> {
                               context1,
                               MaterialPageRoute(
                                   builder: (context) => Feedbacks(
-                                      info, lectureName, currentUser)));
+                                      info, lectureName)));
+
                         },
                         child: ListView(children: [
                           SizedBox(
@@ -154,7 +162,7 @@ class ForumState extends State<Forum> {
                           SizedBox(
                               width: 350,
                               child: Text(
-                                  'Give us you oppinion or see what others had to say about this talk.',
+                                  'Give us your oppinion or see what others had to say about this talk.',
                                   style: TextStyle(
                                       fontSize: 16, color: Color(0xFF7F8C8D))))
                         ]))),

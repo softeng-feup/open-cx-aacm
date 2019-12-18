@@ -7,19 +7,17 @@ import 'home_page.dart';
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
   final AllInfo info;
-  final User currentUser;
 
-  LoginPage(this.info, this.currentUser);
+  LoginPage(this.info);
 
   @override
-  _LoginPageState createState() => new _LoginPageState(info, currentUser);
+  _LoginPageState createState() => new _LoginPageState(info);
 }
 
 class _LoginPageState extends State<LoginPage> {
-  _LoginPageState(this.info, this.currentUser);
+  _LoginPageState(this.info);
 
   AllInfo info;
-  User currentUser;
   GlobalKey<FormState> _key = new GlobalKey();
   bool _validate = false;
   bool incorrectPass = false;
@@ -132,7 +130,8 @@ class _LoginPageState extends State<LoginPage> {
           (cookie) => (cookie.email == email && cookie.password == password),
           orElse: () => null);
       if (check != null) {
-        currentUser = info.getUser(email);
+        User currentUser = info.getUser(email);
+        info.currentUser = currentUser;
         Navigator.of(context).pushNamed(HomePage.tag);
       } else {
         incorrectPass = true;
