@@ -166,7 +166,6 @@ class User {
 }
 
 class Speaker extends User{
-
   List<Lecture> lectures = [];
   Speaker(int id, String nome, String pass, String email): super(id, nome, pass, email); 
 

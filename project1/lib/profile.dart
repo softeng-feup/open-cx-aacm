@@ -29,7 +29,7 @@ class Profile extends StatelessWidget {
                   tag: 'hero',
                   child: CircleAvatar(
                     radius: 100.0,
-                    backgroundColor: Colors.lightBlue,
+                    backgroundColor: Color(0xFF3EA6F2),
                     child: CircleAvatar(
                       radius: 80.0,
                       backgroundImage: AssetImage(info.getLecture(lectureName).getSpeaker().getPhoto()),

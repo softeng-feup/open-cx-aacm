@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
       title: 'LiveFeedBack',
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: Colors.lightBlueAccent,
-        accentColor: Colors.lightBlue,
+        primaryColor: Color(0xFF3EA6F2),
+        accentColor: Color(0xFF3EA6F2),
 
         // Define the default font family.
         fontFamily: 'Montserrat',

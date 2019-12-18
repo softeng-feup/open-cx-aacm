@@ -68,10 +68,9 @@ class _Upload extends State<Upload> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: const Text('Live Feedback'),
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Resources"),
         ),
         body: 
           new Center(
@@ -153,7 +152,7 @@ class _Upload extends State<Upload> {
                   child: new RaisedButton(
                       shape: RoundedRectangleBorder(
                       side: BorderSide(
-                          color: Colors.lightBlue, width: 2.0),
+                          color: Color(0xFF3EA6F2), width: 2.0),
                           borderRadius: BorderRadius.circular(20),
                       ),
                     onPressed: () => _openFileExplorer(),
@@ -203,7 +202,7 @@ class _Upload extends State<Upload> {
             ),
           ),
         )),
-      ),
+
     );
   }
 }
