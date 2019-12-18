@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project1/info.dart';
-import 'package:project1/objects.dart' as prefix0;
+import 'package:project1/objects.dart';
 import 'dart:async';
 import 'objects.dart';
 
