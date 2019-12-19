@@ -34,7 +34,7 @@ class AnswersState extends State<Answers> {
       setState(() async {
         final answer = await Navigator.push(
             AnswersState.context1,
-            MaterialPageRoute(builder: (context1) => InfoAnswer())
+            MaterialPageRoute(builder: (context1) => InfoAnswer(info))
         );
         if(answer!=null)
           list.add(answer);
@@ -78,7 +78,7 @@ class AnswersState extends State<Answers> {
                       onPressed: null,
                       padding: EdgeInsets.all(12),
                       color: Colors.grey[((index % 2) + 1) * 100],
-                      child: Text(info.getLecture(lecture).getQuestionForum()[id].getText()
+                      child: Text(list[index].getText()
                       ),
                     ),
                   );
@@ -116,30 +116,16 @@ class AnswersState extends State<Answers> {
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-
-  Widget QuestionBox(){
-    return Container(
-      // padding:new EdgeInsets.all(40.0) ,
-        width: 320,
-        height: 100.0,
-        decoration: new BoxDecoration(color:  Colors.white10),
-        child: Text(info.getLecture(info.getLecture(lecture).getQuestionForum()[id].getText()).getSpeaker().getDescription(),
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Color(0xFF5A6779))
-        )
-    );
-  }
 }
 
 class InfoAnswer extends StatelessWidget { //adicionar resposta
   static final formKey = GlobalKey<FormState>();
   Question question;
   Answer answer;
+  AllInfo info;
 
 
-  InfoAnswer();
+  InfoAnswer(this.info);
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +145,7 @@ class InfoAnswer extends StatelessWidget { //adicionar resposta
                         decoration: InputDecoration(
                             labelText: 'Add your reply here...'
                         ),
-                        onSaved: (String val) => (answer = new Answer(0, null , val, null)),
+                        onSaved: (String val) => (answer = new Answer(0, null , val, DateTime(2019))),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
