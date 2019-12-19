@@ -216,7 +216,7 @@ class ForumState extends State<Forum> {
                   context1,
                   MaterialPageRoute(
                       builder: (context) =>
-                          Questions(0, info, lectureName, true)));
+                          Questions(0, info, lectureName)));
             },
             child: ListView(children: [
               SizedBox(
