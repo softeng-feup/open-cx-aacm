@@ -50,3 +50,32 @@ class StarRating extends StatelessWidget {
         );}));}
 }
 //*************************************************************************************************
+
+class Anon extends StatelessWidget {
+  final void Function(int index) onChanged;
+  final int value;
+  final IconData filledStar;
+  final IconData unfilledStar;
+
+  int getValue(){return value;}
+
+  const Anon({
+    Key key, @required this.onChanged, this.value = 0, this.filledStar, this.unfilledStar})
+      : assert(value != null), super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final size = 30.0;
+    return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: List.generate(1, (index) {
+          return IconButton(
+            onPressed: onChanged != null ? () {onChanged(value == index + 1 ? index : index + 1);}
+                : null,
+            color: Color(0xFF3EA6F2), iconSize: size,
+            icon: Icon(
+              index < value ? filledStar ?? Icons.check_box : unfilledStar ?? Icons.check_box_outline_blank,
+            ),
+            padding: EdgeInsets.zero, tooltip: "${index + 1} of 1",
+          );}));}
+}

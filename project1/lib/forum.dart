@@ -9,25 +9,29 @@ import 'talk_resources.dart';
 import 'talk_feedback.dart';
 
 class Forum extends StatefulWidget {
-   AllInfo info;
-   String lectureName;
-   String lectureDesc;
+  AllInfo info;
+  String lectureName;
+  String lectureDesc;
 
   Forum(this.info, this.lectureName, this.lectureDesc);
 
   @override
-  ForumState createState() =>
-      new ForumState(info, lectureName, lectureDesc);
+  ForumState createState() => new ForumState(info, lectureName, lectureDesc);
 }
 
 class ForumState extends State<Forum> {
   static BuildContext context1;
   DateTime now;
+  static AllInfo info_;
+  static String lectureName_;
   AllInfo info;
   String lectureName;
   String lectureDesc;
 
-  ForumState(this.info, this.lectureName, this.lectureDesc);
+  ForumState(this.info, this.lectureName, this.lectureDesc) {
+    info_ = this.info;
+    lectureName_ = this.lectureName;
+  }
 
   void _getTime() {
     if (this.mounted)
@@ -111,62 +115,31 @@ class ForumState extends State<Forum> {
                                   builder: (context) =>
                                       Profile(info, lectureName)));
                         },
-                        child: Column(children:
-                        [Text(
-                            'Speaker',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black54,
-                            )),
-                          Text(
-                              info.getLecture(lectureName).getSpeaker().getName(),
+                        child: Column(children: [
+                          Text('Speaker',
                               style: TextStyle(
-                                  fontSize: 16,
-                                  color: Color(0xFF7F8C8D),
-                                  )),
-                          ])),
-
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black54,
+                              )),
+                          Text(
+                              info
+                                  .getLecture(lectureName)
+                                  .getSpeaker()
+                                  .getName(),
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Color(0xFF7F8C8D),
+                              )),
+                        ])),
                   ],
                 )
               ]),
-              talkResources,
-              if (now.minute >= 1)
-                SizedBox(
-                    width: 350,
-                    height: 100,
-                    child: RaisedButton(
-                        color: Colors.white,
-                        onPressed: () {
-                          Navigator.push(
-                              context1,
-                              MaterialPageRoute(
-                                  builder: (context) => Feedbacks(
-                                      info, lectureName)));
-
-                        },
-                        child: ListView(children: [
-                          SizedBox(
-                            height: 15,
-                          ),
-                          SizedBox(
-                              width: 350,
-                              child: Text('Feedback',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 22,
-                                      color: Color(0xFF5A6779)))),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          SizedBox(
-                              width: 350,
-                              child: Text(
-                                  'Give us your oppinion or see what others had to say about this talk.',
-                                  style: TextStyle(
-                                      fontSize: 16, color: Color(0xFF7F8C8D))))
-                        ]))),
-              if (now.minute >= 1) talkForum(),
+                talkResources,
+              if (now.millisecondsSinceEpoch >= info.getLecture(lectureName).getTime().millisecondsSinceEpoch)
+                talkFeedback,
+              if (now.millisecondsSinceEpoch >= info.getLecture(lectureName).getTime().millisecondsSinceEpoch)
+                talkForum(),
               SizedBox(
                 height: 10,
               ),
@@ -174,6 +147,38 @@ class ForumState extends State<Forum> {
           )
         ]));
   }
+
+  final talkFeedback = SizedBox(
+      width: 350,
+      height: 100,
+      child: RaisedButton(
+          color: Colors.white,
+          onPressed: () {
+            Navigator.push(
+                context1,
+                MaterialPageRoute(
+                    builder: (context) => Feedbacks(info_, lectureName_)));
+          },
+          child: ListView(children: [
+            SizedBox(
+              height: 15,
+            ),
+            SizedBox(
+                width: 350,
+                child: Text('Feedback',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                        color: Color(0xFF5A6779)))),
+            SizedBox(
+              height: 5,
+            ),
+            SizedBox(
+                width: 350,
+                child: Text(
+                    'Give us your oppinion or see what others had to say about this talk.',
+                    style: TextStyle(fontSize: 16, color: Color(0xFF7F8C8D))))
+          ])));
 
   final talkResources = SizedBox(
       width: 350,
@@ -215,8 +220,7 @@ class ForumState extends State<Forum> {
               Navigator.push(
                   context1,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          Questions(0, info, lectureName)));
+                      builder: (context) => Questions(0, info, lectureName)));
             },
             child: ListView(children: [
               SizedBox(
@@ -239,3 +243,10 @@ class ForumState extends State<Forum> {
             ])));
   }
 }
+
+
+/*if ((now.day >= info.getLecture(lectureName).getTime().day) &
+(now.month >= info.getLecture(lectureName).getTime().month) &
+(now.year >= info.getLecture(lectureName).getTime().year) &
+(now.minute >= info.getLecture(lectureName).getTime().minute) &
+(now.hour >= info.getLecture(lectureName).getTime().hour))*/

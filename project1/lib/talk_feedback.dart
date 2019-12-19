@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project1/info.dart';
-import 'star_rating.dart';
+import 'templates.dart';
 import 'info.dart';
 import 'objects.dart';
-
 
 class Feedbacks extends StatefulWidget {
   final AllInfo info;
@@ -42,10 +41,7 @@ class FeedbackState extends State<Feedbacks> {
           title: Text("Feedback"),
         ),
         body: new ListView.builder(
-            itemCount: info
-                .getLecture(lectureName)
-                .getFeedbackForum()
-                .length,
+            itemCount: info.getLecture(lectureName).getFeedbackForum().length,
             itemBuilder: (context, index) {
               return Container(
                   alignment: Alignment.center,
@@ -55,25 +51,31 @@ class FeedbackState extends State<Feedbacks> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          StarDisplay(value: info.getLecture(lectureName)
-                              .getFeedbackForum()[index].getStars())
+                          StarDisplay(
+                              value: info
+                                  .getLecture(lectureName)
+                                  .getFeedbackForum()[index]
+                                  .getStars())
                         ]),
                     SizedBox(height: 10),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                       Text(
-                          info.getLecture(lectureName).getFeedbackForum()[index]
+                          info
+                              .getLecture(lectureName)
+                              .getFeedbackForum()[index]
                               .getText(),
                           textAlign: TextAlign.justify,
                           style: TextStyle(fontSize: 18)),
                     ]),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(info.getLecture(lectureName)
-                              .getFeedbackForum()[index].getInfo(),
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(fontSize: 18))
-                        ]),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      Text(
+                          info
+                              .getLecture(lectureName)
+                              .getFeedbackForum()[index]
+                              .getInfo(),
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(fontSize: 18))
+                    ]),
                     SizedBox(height: 15)
                   ]));
             }),
@@ -93,96 +95,114 @@ class FeedbackState extends State<Feedbacks> {
 }
 
 class InfoFeedback extends StatelessWidget {
-  //adicionar palestra
   static final formKey = GlobalKey<FormState>();
- AllInfo info;
-
+  AllInfo info;
   InfoFeedback(this.info);
+  int counter=0;
 
-  FeedBack _newFeedback = new FeedBack(
-      null, User(0, "", "", ""), "", 0, new DateTime.now());
+  FeedBack _newFeedback =
+      new FeedBack(null, User(0, "", "", ""), "", 0, new DateTime.now());
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text('Adicionar nova palestra'),
+          title: new Text('Feedback'),
         ),
-        body: Card(
-          child: new SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      SizedBox(height: 30),
-                      Row(mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text('Your feedback',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 46,
-                                    color: Color(0xFF5A6779))),
-                          ]),
-                      SizedBox(height: 30),
-                      rateTitle,
-                      FormField<int>(
-                        initialValue: 0,
-                        autovalidate: true,
-                        builder: (state) {
-                          return Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              StarRating(
-                                onChanged: state.didChange,
-                                value: state.value,
-                              ),
-                            ],
-                          );
-                        },
-                        onSaved: (value) =>
-                        {
-                          if (value == null) value = 0,
-                          _newFeedback.setStars(value),},
-                      ),
-                      leaveAComment,
-                      TextFormField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),),
-                        onSaved: (String val) =>
-                        {
-                          if (val == null || val == "") val = "--",
-                          _newFeedback.setText(val),
-                        _newFeedback.setUser(info.currentUser)},
-                        maxLength: 300,
-                        maxLines: 6,
-                        style: new TextStyle(
-                            fontSize: 20.0, color: Colors.black),
-
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+        body: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Form(
+              key: formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SizedBox(height: 30),
+                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                    Text('Your feedback',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 46,
+                            color: Color(0xFF5A6779))),
+                  ]),
+                  SizedBox(height: 30),
+                  rateTitle,
+                  FormField<int>(
+                    initialValue: 0,
+                    autovalidate: true,
+                    builder: (state) {
+                      return Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: RaisedButton(
-                              onPressed: () {
-                                _submit();
-                                Navigator.pop(context, _newFeedback);
-                              },
-                              child: Text('Submit'),
-                            ),
-                          )
+                          StarRating(
+                            onChanged: state.didChange,
+                            value: state.value,
+                          ),
                         ],
+                      );
+                    },
+                    onSaved: (value) => {
+                      if (value == null) value = 0,
+                      _newFeedback.setStars(value),
+                    },
+                  ),
+                  leaveAComment,
+                  TextFormField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
+                    onSaved: (String val) => {
+                      if (val == null || val == "") val = "--",
+                      _newFeedback.setText(val),
+                    },
+                    maxLength: 300,
+                    maxLines: 6,
+                    style: new TextStyle(fontSize: 20.0, color: Colors.black),
+                  ),
+                  FormField<int>(
+                    initialValue: 0,
+                    autovalidate: true,
+                    builder: (state) {
+                      return Column(
+
+                        children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Text("Hide my identity: ", style: TextStyle(fontSize: 18.0),),
+                          Anon(
+                            onChanged: state.didChange,
+                            value: state.value,
+                          ),
+                        ],
+                      )]);
+                    },
+                    onSaved: (value) => {
+                      if (value == null) value = 0,
+                        if (value == 0)
+                          _newFeedback.setUser(info.currentUser)
+                    },
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: RaisedButton(
+                          onPressed: () {
+                            _submit();
+                            Navigator.pop(context, _newFeedback);
+                          },
+                          child: Text('Submit'),
+                        ),
                       )
                     ],
-                  ),
-                ),
-              )),
-        ));
-  }
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+    }
 
   final rateTitle = Row(
     mainAxisAlignment: MainAxisAlignment.start,
@@ -195,20 +215,18 @@ class InfoFeedback extends StatelessWidget {
     ],
   );
 
-  final leaveAComment = Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
-        SizedBox(
-          child: Text('Leave a comment (optional):',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                  color: Color(0xFF707070))),
-        )
-      ]);
+  final leaveAComment =
+      Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+    SizedBox(
+      child: Text('Leave a comment (optional):',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+              color: Color(0xFF707070))),
+    )
+  ]);
 
   void _submit() {
     formKey.currentState.save();
   }
 }
-
