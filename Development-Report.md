@@ -49,11 +49,6 @@ Margarida Pinho
 ---
 ## Requirements
 
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
-
-Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
-
-
 ### Use case diagram 
 
 ![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/Use%20Case%20Diagram.png) 
@@ -250,8 +245,6 @@ In this diagram we do not have a real time estimate of each user story but more 
 
 
 ### Domain model
-
-To better understand the context of the software system, it is very useful to have a simple UML class diagram with all the key concepts (names, attributes) and relationships involved of the problem domain addressed by your module.
 
 ![Live Feedback](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/LiveFeedback%20UML.png)
 
