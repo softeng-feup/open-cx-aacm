@@ -296,7 +296,7 @@ We will divide this section in iterations, since our project evolution in terms 
 *Iteration 1:*
 * In this iteration our main focous was to learn Flutter, which took a considerable amout of time. We were only able to implement the log in page and the page to display/add lectures.
 
-![login](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/login.png)  
+![login](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/login.png 250x250)  
 
 
 *Iteration 2:*
