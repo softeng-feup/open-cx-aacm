@@ -40,13 +40,11 @@ Margarida Pinho
 ---
 
 ## Product Vision
- For the participants of the conference who want to take the best profit of the event the LiveFeedback app is a strong ally that provides the opportunity of interacting at any time of the talks by using a real time forum in which any attendee can give feedback, share and search the material used during each talk, ask questions, which you can do anonymously to make yourself comfortable for asking anything at all and also read other's questions.
+ The focus of our app is to provides the opportunity of interacting at any time of the talks by using a real time forum in which any attendee can give feedback, share and search the material used during each talk, ask questions, which you can do anonymously. This way we reduce the need of face-to-face interactions.
  
- Unlike other common apps, our product helps not only the attendees but also the speakers because it gives you the chance to consult or answer the questions that weren't answered during the time of the talk afterwards.
-
 ---
 ## Elevator Pitch
- LiveFeedback solves the problem of having to wait until the end of the talks to ask your questions, risking forgetting them or even not asking them because it had to be in front of everybody, by using an online forum to help the attendees to ask their questions, that can be anonynous, share material and give feddback, all of this in real time during any talk. 
+ Getting your question through at the end of a talk can be hard. LiveFeedback solves the problem of having to wait until the end of the talks to ask your questions, risking forgetting them or even not asking them because it had to be in front of everybody, by using an online forum to help the attendees to ask their questions, that can be anonymous, share material and give feddback, all of this in real time during any talk. Unlike other common apps, our product helps not only the attendees but also the speakers because it gives you the chance to consult or answer the questions that weren't answered during the time of the talk afterwards. 
 
 ---
 ## Requirements
@@ -242,7 +240,11 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	  
 	  
 ### User stories
-This section contains the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
+To better understand the work flow of our user stories, we have made a diagram with Story Points. Following the Fibonacci sequence, as adviced, we have estimated the work time on our user stories.  
+
+![UserStoriesEstimated](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/UserStories.png)  
+
+In this diagram we do not have a real time estimate of each user story but more of a side by side comparison of them. This way we can estimate how much time each one will take. To see more information about our user stories, check our trello below.  
 
 [User stories in trello](https://trello.com/b/ROideknb)
 
