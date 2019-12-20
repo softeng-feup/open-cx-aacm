@@ -276,8 +276,8 @@ The goal of this subsection is to document the high-level physical structure of 
 
 ![PhysicalArchitecture](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/PhysicalArchitecture1.png)  
 
+We decided to use a beacon to prevent people that aren't in the lecture room from asking questions. This way we can prevent further spam and unwanted or unrelavent information.
 
-It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).
 
 ### Prototype
 In the initial prototype iteration, we didn't started building our app. First we decided to use Flutter as the programming language of our application and this iteration focused mainly on learning about this language.
