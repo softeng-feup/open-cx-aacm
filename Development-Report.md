@@ -248,7 +248,7 @@ Interface mockups, acceptance tests and value and effort of each user story can 
 
 ### Domain model
 
-![Live Feedback](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/LiveFeedback%20UML1.png)
+![Live Feedback](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/LiveFeedback%20UML2.png)
 
 ---
 
