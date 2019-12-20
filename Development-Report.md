@@ -254,11 +254,11 @@ Interface mockups, acceptance tests and value and effort of each user story can 
 
 ## Architecture and Design
 
-The Feedback app starts with a main page that redirect automatically the user to the login page. 
-After the login, the homepage of the user allows to access the foruns of lectures that user attends. 
+The Feedback app starts with a main page that allows the user to login in the app. 
+After the login, the homepage of the user allows to access the shcedule and forums of lectures that user attends. 
 Each forum is associated to a lecture and can redirect user to three topics: resources, forum of answers and questions and feedback page.
-Resources page allows every user (speaker and participant) to consult available resources and the speaker to share more resources.
-In Q&A page, users can create a new topic and ask questions; the speaker, can create or delete a topic and answer questions.
+Resources page allows every user (speaker and participant) to consult available resources and to share more resources.
+In Q&A page, users can create a new topic and ask or answer previous questions; the speaker can delete a topic if it is unsuitable for the talk.
 Feedback page allows participants to add a new topic and every user to consult an existing one. 
 
 
