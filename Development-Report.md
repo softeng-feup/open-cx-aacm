@@ -240,7 +240,11 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 	  
 	  
 ### User stories
-This section contains the requirements of the product described as **user stories**, organized in a global **user story map** with **user roles** or **themes**.
+To better understand the work flow of our user stories, we have made a diagram with Story Points. Following the Fibonacci sequence, as adviced, we have estimated the work time on our user stories.  
+
+![UserStoriesEstimated](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/UserStories.png)  
+
+In this diagram we do not have a real time estimate of each user story but more of a side by side comparison of them. This way we can estimate how much time each one will take. To see more information about our user stories, check our trello below.  
 
 [User stories in trello](https://trello.com/b/ROideknb)
 
