@@ -273,7 +273,7 @@ As the many levels of logic viewing requires, these are some of the high-level s
 
 As shown below, our key features include the client application, the web page and the beacon all connected to the database to assure our service's good running.  
 
-![UMLComponentDiagram](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/UMLComponentDiagram%20(2).png)
+![UMLComponentDiagram](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/UMLComponentDiagram.png)
 
 
 ### Physical architecture
