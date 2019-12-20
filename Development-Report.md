@@ -296,19 +296,18 @@ We will divide this section in iterations, since our project evolution in terms 
 *Iteration 1:*
 * In this iteration our main focous was to learn Flutter, which took a considerable amout of time. We were only able to implement the log in page and the page to display/add lectures.
 
-![login](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/login.png 250x250)  
-
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/login.png" width="220" height="400">
 
 *Iteration 2:*
 * After learning flutter we were confident to futher develop the app. So our focous was to implement the back-end, wich we began in sql. We also updated the front-end by making the page of each lecture, that displayed the information about the lecture.
 
-![lecture](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/lecture.png)  
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/lecture.png" width="220" height="400">
 
 
 *Iteration 3:*
 * After some complications with the sql, we decided that it would be more appropriate to simply inject information into the app. So we stoped developing the sql and focoused on that. Also we updated the Lecture page, having it now acess to the feedback and questions. We also added a profile page that displayed the name, description and social media of the user in question.
 
-![profile](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/perfile.png)  
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/perfil.png" width="220" height="400">
 
 
 It also was very important to us, to start implementing the features that made us diferent from all of the other projects. One of those features was the *live* part and to do that, we only opened the feedback and question forums when the lecture was happening.
@@ -316,24 +315,18 @@ It also was very important to us, to start implementing the features that made u
 *Iteration 4:*
 * Finally on this iteration we implement the last feature that made us different from anybody else, wich is *sharing resources*.Now the user is able to upload and view the resources used during the lecture.
 
-![resources](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/resources.png)  
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/resources.png" width="220" height="400">
 
 
 We also used this iteration to finnish some last minute details. We did a huge improvement on the app design, making it much more user friendly. To do such deed we also implemented a calendar, that makes the user experience much more pleasent.
 
-![calendar](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/calendario.png)  
-
-![feedback](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/addFeedback.png)  
-
-![feedbackForum](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/feedbackForum1.png) 
-
-![questionForum](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/questionForum.png) 
-
-![askQuestion](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/askQuestion.png) 
-
-![answers](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/answers.png) 
-
-![addReply](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/addReply.png) 
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/calendario.png" width="220" height="400"> 
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/addFeedback.png" width="220" height="400"> 
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/feedbackForum1.png" width="220" height="400">
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/questionForum.png" width="220" height="400">
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/askQuestion.png" width="220" height="400">
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/answers.png" width="220" height="400">
+<img src="https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/addReply.png" width="220" height="400">
 
 
 
