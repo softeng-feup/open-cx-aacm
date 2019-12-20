@@ -275,7 +275,6 @@ It should describe also the technologies considered and justify the selections m
 ### Prototype
 In the initial prototype iteration, we didn't started building our app. First we decided to use Flutter as the programming language of our application and this iteration focused mainly on learning about this language.
 
-In this subsection please describe in more detail which, and how, user(s) story(ies) were implemented.
 Besides that, we had to decide how to organize the application and what features were more relevant in order to implement them first.
 
 Relative to the prototype, we build some mockups and tried to implement the initial features (login page, for example) using Flutter.
