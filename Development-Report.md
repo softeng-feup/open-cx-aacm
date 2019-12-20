@@ -51,7 +51,8 @@ Unlike other common apps, our product helps not only the attendees but also the 
 
 ---
 ## Requirements
-
+Our project's main requirements are to being able to add feedback and consult such feedback, ask questions and consult such questions as well as being able to reply to them and finally, upload resources and consult such resources. 
+All of these need to have an interface that is intuitive to the user.
 ### Use case diagram 
 
 ![alt text](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/Use%20Case%20Diagram.png) 
