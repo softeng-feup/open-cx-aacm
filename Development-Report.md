@@ -319,9 +319,10 @@ We are planning to test the following features:
 ---
 ## Configuration and change management
 
-Configuration and change management are key activities to control change to, and maintain the integrity of, a project’s artifacts (code, models, documents).
-
-For the purpose of ESOF, we will use a very simple approach, just to manage feature requests, bug fixes, and improvements, using GitHub issues and following the [GitHub flow](https://guides.github.com/introduction/flow/).
+In order to maintain the integrity of our project’s artifacts, during the development of our project we used some features from the Github Flow:
+* Use of branch for a feature added to the code, related to the process of users information
+* Merge of that branch with the master branch, ensuring that code remains functional and the app is working as expected
+* Use of tags in order to identify the end of some iterations
 
 
 ---
