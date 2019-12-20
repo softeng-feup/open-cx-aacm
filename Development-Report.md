@@ -273,9 +273,13 @@ The goal of this subsection is to document the high-level physical structure of 
 It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).
 
 ### Prototype
-To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
+In the initial prototype iteration, we didn't started building our app. First we decided to use Flutter as the programming language of our application and this iteration focused mainly on learning about this language.
+
 
 In this subsection please describe in more detail which, and how, user(s) story(ies) were implemented.
+Besides that, we had to decide how to organize the application and what features were more relevant in order to implement them first.
+
+Relative to the prototype, we build some mockups and tried to implement the initial features (login page, for example) using Flutter.
 
 ---
 
