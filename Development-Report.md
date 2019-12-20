@@ -235,13 +235,11 @@ Margarida Pinho
 	  
 	  
 ### User stories
-To better understand the work flow of our user stories, we have made a diagram with Story Points. Following the Fibonacci sequence, as adviced, we have estimated the work time on our user stories.  
+To see information about our user stories, check our trello:
+	[User stories in trello](https://trello.com/b/ROideknb)
+	
+Interface mockups, acceptance tests and value and effort of each user story can be found on the description of each one in the link above.
 
-![UserStoriesEstimated](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/UserStories.png)  
-
-In this diagram we do not have a real time estimate of each user story but more of a side by side comparison of them. This way we can estimate how much time each one will take. To see more information about our user stories, check our trello below.  
-
-[User stories in trello](https://trello.com/b/ROideknb)
 
 
 ### Domain model
