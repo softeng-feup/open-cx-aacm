@@ -274,7 +274,7 @@ As shown below, our key features include the client application, the web page an
 ### Physical architecture
 The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.   
 
-!PhysicalArchitecture](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/PhysicalArchitecture1.png)  
+![PhysicalArchitecture](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/PhysicalArchitecture1.png)  
 
 
 It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).
