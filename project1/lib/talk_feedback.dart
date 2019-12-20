@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project1/info.dart';
 import 'templates.dart';
 import 'info.dart';
 import 'objects.dart';

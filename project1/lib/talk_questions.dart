@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project1/info.dart';
-import 'package:project1/objects.dart';
 import 'talk_answer.dart';
 import 'objects.dart';
 import 'templates.dart';

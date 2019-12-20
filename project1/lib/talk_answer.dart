@@ -1,4 +1,3 @@
-import 'objects.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/info.dart';
 import 'package:project1/objects.dart';

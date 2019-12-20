@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'profile.dart';
 import 'dart:async';
 import 'info.dart';
-import 'objects.dart';
 import 'talk_questions.dart';
 import 'talk_resources.dart';
 import 'talk_feedback.dart';
@@ -42,7 +41,6 @@ class ForumState extends State<Forum> {
 
   @override
   void initState() {
-    // TODO: implement initState
     now = DateTime.now();
     Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
     super.initState();

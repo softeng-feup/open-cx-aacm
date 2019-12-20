@@ -44,7 +44,6 @@ class AllInfo {
     return person;
   }
   String getLectureInfo(String name){
-    String info;
     var lecture = allLectures.firstWhere((lect) => lect.getName() == name, orElse: () => null);
     return lecture.getInfo();
   }

@@ -282,6 +282,7 @@ We decided to use a beacon to prevent people that aren't in the lecture room fro
 ### Prototype
 In the initial prototype iteration, we didn't started building our app. First we decided to use Flutter as the programming language of our application and this iteration focused mainly on learning about this language.
 
+
 Besides that, we had to decide how to organize the application and what features were more relevant in order to implement them first.
 
 Relative to the prototype, we build some mockups and tried to implement the initial features (login page, for example) using Flutter.
@@ -295,18 +296,46 @@ We will divide this section in iterations, since our project evolution in terms 
 *Iteration 1:*
 * In this iteration our main focous was to learn Flutter, which took a considerable amout of time. We were only able to implement the log in page and the page to display/add lectures.
 
+![login](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/login.png)  
+
+
 *Iteration 2:*
 * After learning flutter we were confident to futher develop the app. So our focous was to implement the back-end, wich we began in sql. We also updated the front-end by making the page of each lecture, that displayed the information about the lecture.
 
+![lecture](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/lecture.png)  
+
+
 *Iteration 3:*
 * After some complications with the sql, we decided that it would be more appropriate to simply inject information into the app. So we stoped developing the sql and focoused on that. Also we updated the Lecture page, having it now acess to the feedback and questions. We also added a profile page that displayed the name, description and social media of the user in question.
+
+![profile](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/perfile.png)  
+
 
 It also was very important to us, to start implementing the features that made us diferent from all of the other projects. One of those features was the *live* part and to do that, we only opened the feedback and question forums when the lecture was happening.
 
 *Iteration 4:*
 * Finally on this iteration we implement the last feature that made us different from anybody else, wich is *sharing resources*.Now the user is able to upload and view the resources used during the lecture.
 
+![resources](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/resources.png)  
+
+
 We also used this iteration to finnish some last minute details. We did a huge improvement on the app design, making it much more user friendly. To do such deed we also implemented a calendar, that makes the user experience much more pleasent.
+
+![calendar](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/calendario.png)  
+
+![feedback](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/addFeedback.png)  
+
+![feedbackForum](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/feedbackForum1.png) 
+
+![questionForum](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/questionForum.png) 
+
+![askQuestion](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/askQuestion.png) 
+
+![answers](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/answers.png) 
+
+![addReply](https://github.com/softeng-feup/open-cx-aacm/blob/master/documentation/addReply.png) 
+
+
 
 Releases can be found on the releases page in this repo.
 
@@ -318,18 +347,15 @@ To assure the quality of our application, we will run some tests.
 We are planning to test the following features:
  * Sign in:
         * Check the input data and its validity.
- * Log in:
-        * Check if the email is valid.
-	* Check if the password matches the email.
- * Add doubt:
+ * Add question:
         * Check that the question is added to the forum and that it is displayed correctly.
- * Answer doubt:
+ * Answer question:
        * If speaker: 
                 * Check that, when answering a question, the reply is highlighted to distinguish it from the other users.
        * If speaker/user: 
                 * Check that the reply is added and displayed correctly.
  * Feedback:
-	* Check that the question is added to the forum and that it is displayed correctly.
+	* Check that the feedback is added to the forum and that it is displayed correctly.
 	* Check that if user decides to give Feedback anonymously, that the username isn't displayed.
 
 ---
