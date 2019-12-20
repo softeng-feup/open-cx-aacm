@@ -306,7 +306,9 @@ It also was very important to us, to start implementing the features that made u
 *Iteration 4:*
 * Finally on this iteration we implement the last feature that made us different from anybody else, wich is *sharing resources*.Now the user is able to upload and view the resources used during the lecture.
 
-We also used this iteration to finnish some last minute details. We did a huge improvement on the app design, making it much more user friendly. To do such deed we also implemented an calender, that makes the user experience much more pleasent.
+We also used this iteration to finnish some last minute details. We did a huge improvement on the app design, making it much more user friendly. To do such deed we also implemented a calendar, that makes the user experience much more pleasent.
+
+Releases can be found on the releases page in this repo.
 
 ---
 ## Test
