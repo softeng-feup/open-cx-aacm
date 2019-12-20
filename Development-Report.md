@@ -44,7 +44,7 @@ Margarida Pinho
  
 ---
 ## Elevator Pitch
-Getting your questions and opinions through the end of a talk can be hard. LiveFeedback solves the problem of having to wait until the end of the talks to ask your questions and give your opinion, risking forgetting them or even not asking or giving them because it had to be in front of everybody, by using an online forum to help the attendees to ask their questions, share material and give feedback, all of this in real time during any talk and with the possibility of hiding your identity so that anything is left to say. 
+Getting your question and opinions through the end of a talk can be hard. LiveFeedback solves the problem of having to wait until the end of the talks to ask your questions and give your opinion, risking forgetting them or even not asking or giving them because it had to be in front of everybody, by using an online forum to help the attendees to ask their questions, share material and give feedback, all of this in real time during any talk and with the possibility of hiding your identity so that anything is left to say. 
 
 
 Unlike other common apps, our product helps not only the attendees but also the speakers because it gives you the chance to consult or answer the questions that weren't answered during the time of the talk afterwards. 
@@ -289,13 +289,24 @@ Relative to the prototype, we build some mockups and tried to implement the init
 ---
 
 ## Implementation
-During implementation, while not necessary, it 
 
-It might be also useful to explain a few aspects of the code that have the greatest potential to confuse software engineers about how it works. 
+We will divide this section in iterations, since our project evolution in terms of implemmentation is in accordance to such thing.
 
-Since the code should speak by itself, try to keep this section as short and simple as possible.
+*Iteration 1:*
+* In this iteration our main focous was to learn Flutter, which took a considerable amout of time. We were only able to implement the log in page and the page to display/add lectures.
 
-Use cross-links to the code repository and only embed real fragments of code when strictly needed, since they tend to become outdated very soon.
+*Iteration 2:*
+* After learning flutter we were confident to futher develop the app. So our focous was to implement the back-end, wich we began in sql. We also updated the front-end by making the page of each lecture, that displayed the information about the lecture.
+
+*Iteration 3:*
+* After some complications with the sql, we decided that it would be more appropriate to simply inject information into the app. So we stoped developing the sql and focoused on that. Also we updated the Lecture page, having it now acess to the feedback and questions. We also added a profile page that displayed the name, description and social media of the user in question.
+
+It also was very important to us, to start implementing the features that made us diferent from all of the other projects. One of those features was the *live* part and to do that, we only opened the feedback and question forums when the lecture was happening.
+
+*Iteration 4:*
+* Finally on this iteration we implement the last feature that made us different from anybody else, wich is *sharing resources*.Now the user is able to upload and view the resources used during the lecture.
+
+We also used this iteration to finnish some last minute details. We did a huge improvement on the app design, making it much more user friendly. To do such deed we also implemented an calender, that makes the user experience much more pleasent.
 
 ---
 ## Test
