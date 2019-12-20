@@ -282,11 +282,9 @@ The goal of this subsection is to document the high-level physical structure of 
 It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).
 
 ### Prototype
-In the initial prototype iteration, we didn't started building our app. First we decided to use Flutter as the programming language of our application and this iteration focused mainly on learning about this language.
+To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
 
-Besides that, we had to decide how to organize the application and what features were more relevant in order to implement them first.
-
-Relative to the prototype, we build some mockups and tried to implement the initial features (login page, for example) using Flutter.
+In this subsection please describe in more detail which, and how, user(s) story(ies) were implemented.
 
 ---
 
@@ -305,23 +303,21 @@ Use cross-links to the code repository and only embed real fragments of code whe
 To assure the quality of our application, we will run some tests.
 
 We are planning to test the following features:
- * Sign in
+ * Sign in:
         * Check the input data and its validity.
- * Add doubt
+ * Log in:
+        * Check if the email is valid.
+	* Check if the password matches the email.
+ * Add doubt:
         * Check that the question is added to the forum and that it is displayed correctly.
- * Answer doubt
+ * Answer doubt:
        * If speaker: 
                 * Check that, when answering a question, the reply is highlighted to distinguish it from the other users.
        * If speaker/user: 
                 * Check that the reply is added and displayed correctly.
-  
-There are several ways of documenting testing activities, and quality assurance in general, being the most common: a strategy, a plan, test case specifications, and test checklists.
-
-In this section it is only expected to include the following:
-* test plan describing the list of features to be tested and the testing methods and tools;
-* test case specifications to verify the functionalities, using unit tests and acceptance tests.
- 
-A good practice is to simplify this, avoiding repetitions, and automating the testing actions as much as possible.
+ * Feedback:
+	* Check that the question is added to the forum and that it is displayed correctly.
+	* Check that if user decides to give Feedback anonymously, that the username isn't displayed.
 
 ---
 ## Configuration and change management
