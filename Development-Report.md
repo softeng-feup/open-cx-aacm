@@ -44,10 +44,10 @@ Margarida Pinho
  
 ---
 ## Elevator Pitch
-	Getting your question and opinions through the end of a talk can be hard. LiveFeedback solves the problem of having to wait until the end of the talks to ask your questions, risking forgetting them or even not asking them because it had to be in front of everybody, by using an online forum to help the attendees to ask their questions, share material and give feedback, all of this in real time during any talk and with the possibility of hiding your identity so that anything is left to say. 
+Getting your question and opinions through the end of a talk can be hard. LiveFeedback solves the problem of having to wait until the end of the talks to ask your questions, risking forgetting them or even not asking them because it had to be in front of everybody, by using an online forum to help the attendees to ask their questions, share material and give feedback, all of this in real time during any talk and with the possibility of hiding your identity so that anything is left to say. 
 
 
-	Unlike other common apps, our product helps not only the attendees but also the speakers because it gives you the chance to consult or answer the questions that weren't answered during the time of the talk afterwards. 
+Unlike other common apps, our product helps not only the attendees but also the speakers because it gives you the chance to consult or answer the questions that weren't answered during the time of the talk afterwards. 
 
 ---
 ## Requirements
