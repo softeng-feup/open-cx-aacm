@@ -50,7 +50,7 @@ class Parser {
     Answer a2 =
         new Answer(1, people[6], "Veja o meu perfil para mais informação", t2);
     Question q2 =
-        new Question(1, people[0], "irá voltar a dar esta palestra?", t2);
+        new Question(1, people[1], "Irá voltar a dar esta palestra?", t2);
     q2.addAnswer(a2);
 
     Lecture l1 =

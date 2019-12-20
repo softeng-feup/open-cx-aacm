@@ -68,14 +68,13 @@ class FeedBack {
   void setText(String text){this.text = text;}
   void setTime(DateTime d){this.time = d;}
 
-  String getInfo(){
+  String getDate(){
     var day = getTime().day;
     var month = getTime().month;
     var year = getTime().year;
     var hour = getTime().hour;
     var minute = getTime().minute;
-    String username= user.getName();
-    return username + " $day/$month/$year $hour:$minute";
+    return " at $day/$month/$year $hour:$minute";
   }
 }
 
@@ -105,16 +104,16 @@ class Question {
 
 class Answer{
   int id;
-  Speaker speaker;
+  User user;
   String text;
   DateTime date;
 
-  Answer(this.id,this.speaker,this.text,this.date);
+  Answer(this.id,this.user,this.text,this.date);
   int getId(){return id;}
-  Speaker getSpeaker(){return speaker;}
+  User getUser(){return user;}
   String getText(){return text;}
   DateTime getDate(){return date;}
-  void setSpeaker(Speaker sp){this.speaker = sp;}
+  void setUser(User user){this.user = user;}
   void setText(String text){this.text = text;}
   void setDate(DateTime d){this.date = d;}
 
